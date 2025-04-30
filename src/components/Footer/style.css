@@ -1,0 +1,7 @@
+.footer {
+    @apply fixed h-20 w-full text-center py-2 z-20 transition-all duration-300 ease-in-out -bottom-10;
+
+    &:hover {
+        @apply bg-main text-mainDark bottom-0;
+    }
+}

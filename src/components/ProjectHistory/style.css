@@ -1,0 +1,62 @@
+.project-history {
+    @apply grid grid-cols-1 gap-10;
+    
+    &__item {
+        @apply flex flex-col w-full rounded-lg overflow-hidden;
+
+        &:hover {
+            @apply bg-neutral-200;
+        }
+    }
+
+    &__image {
+        @apply object-cover;
+
+        &-container {
+            @apply relative w-full h-36;
+        }
+    }
+
+    &__details {
+        &-container {
+            @apply p-4 relative block;
+        }
+    }
+
+    &__title {
+        @apply text-base font-semibold mb-2;
+    }
+
+    &__description {
+        @apply text-sm text-ellipsis line-clamp-3;
+    }
+}
+
+@media screen(md) {
+    .project-history {
+        @apply grid-cols-2;
+    }
+}
+
+@media screen(lg) {
+    .project-history {
+
+        &__description {
+            @apply line-clamp-4;
+        }
+    }
+}
+
+@media screen(xl) {
+    .project-history {
+        &__item {
+            @apply flex-row;
+        }
+
+        &__image {
+            &-container {
+                @apply max-w-xs;
+            }
+        }
+    }
+}

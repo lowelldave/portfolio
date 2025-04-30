@@ -8,10 +8,27 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        'roboto': ['Roboto', 'sans-serif'],
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        main: "var(--main)",
+        sub: "var(--sub)",
+        mainDark: "var(--main-dark)",
+        subDark: "var(--sub-dark)",
       },
+      padding: {
+        sideNav: "0 0 0 7rem",
+        topNav: "4rem 0 0 0",
+      },
+      width: {
+        sideNav: "7rem",
+      },
+      height: {
+        topNav: "4rem",
+      }
     },
   },
   plugins: [],

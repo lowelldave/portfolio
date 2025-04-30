@@ -1,0 +1,41 @@
+.navigation {
+    @apply fixed w-full h-topNav py-4 flex justify-center bg-background bg-opacity-5 border-r z-20 shadow-lg;
+}
+
+.navigation__list {
+    @apply flex flex-row justify-center gap-2;
+}
+
+.navigation__list-item {
+    @apply px-4 text-main content-center box-content border-x-2 border-y-0 border-transparent;
+
+    &.active {
+        @apply border-x-main;
+    }
+}
+
+.navigation__link {
+    @apply transition-all duration-300 ease-in-out text-sm font-roboto;
+}
+
+@media screen(md) {
+    .navigation {
+        @apply bg-foreground w-sideNav h-full py-4;
+
+        &:hover {
+            @apply w-36;
+        }
+    }
+
+    .navigation__list {
+        @apply flex-col gap-10;
+    }
+
+    .navigation__list-item {
+        @apply text-mainDark px-4 py-2 border-y-2 border-x-0 border-transparent;
+
+        &.active {
+            @apply border-y-mainDark;
+        }
+    }
+}

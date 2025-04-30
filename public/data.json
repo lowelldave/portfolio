@@ -1,0 +1,109 @@
+{
+    "stack": [
+        {
+            "id": 1,
+            "name": "react",
+            "label": "React JS",
+            "imgUrl": "https://cdn.svgporn.com/logos/react.svg",
+            "url": "https://react.dev/"
+        },
+        {
+            "id": 2,
+            "name": "next",
+            "label": "Next JS",
+            "imgUrl": "https://cdn.svgporn.com/logos/nextjs-icon.svg",
+            "url": "https://vercel.com/frameworks/nextjs"
+        },
+        {
+            "id": 3,
+            "name": "vue",
+            "label": "Vue JS",
+            "imgUrl": "https://cdn.svgporn.com/logos/vue.svg",
+            "url": "https://vuejs.org/"
+        },
+        {
+            "id": 4,
+            "name": "nuxt",
+            "label": "Nuxt JS",
+            "imgUrl": "https://cdn.svgporn.com/logos/nuxt-icon.svg",
+            "url": "https://nuxt.com/"
+        },
+        {
+            "id": 5,
+            "name": "typescript",
+            "label": "Typescript",
+            "imgUrl": "https://cdn.svgporn.com/logos/typescript-icon.svg",
+            "url": "https://www.typescriptlang.org/"
+        },
+        {
+            "id": 6,
+            "name": "javascript",
+            "label": "Javascript",
+            "imgUrl": "https://cdn.svgporn.com/logos/javascript.svg",
+            "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+        },
+        {
+            "id": 7,
+            "name": "node",
+            "label": "Node JS",
+            "imgUrl": "https://cdn.svgporn.com/logos/nodejs-icon.svg",
+            "url": "https://nodejs.org/en"
+        }
+    ],
+    "work": [
+        {
+            "id": 1,
+            "name": "Cafe24 Philippines",
+            "position": "Frontend Developer",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            "date": "June 2019 - June 2023",
+            "logoSrc": "/cafe24.png"
+        },
+        {
+            "id": 2,
+            "name": "J6W Inc.",
+            "position": "Frontend Developer",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            "date": "June 2024 - Nov 2024",
+            "logoSrc": "/j6w.png"
+        }
+    ],
+    "project": [
+        {
+            "id": 1,
+            "title": "Business Intelligence Application",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            "imgUrl": "/sample.jpg"
+        },
+        {
+            "id": 2,
+            "title": "Website Performance Analysis Application",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            "imgUrl": "/sample.jpg"
+        },
+        {
+            "id": 3,
+            "title": "Shopping Mall Feature Extensions",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            "imgUrl": "/sample.jpg"
+        },
+        {
+            "id": 4,
+            "title": "Solutions Admin Frontend Migration",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            "imgUrl": "/sample.jpg"
+        },
+        {
+            "id": 5,
+            "title": "Centalized Web Admin App",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            "imgUrl": "/sample.jpg"
+        },
+        {
+            "id": 6,
+            "title": "Online Shop Miniprogram",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            "imgUrl": "/sample.jpg"
+        }
+    ]
+}

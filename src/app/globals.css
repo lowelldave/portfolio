@@ -2,20 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@font-face {
+  font-family: Roboto;
+  src: url('/font/roboto.ttf');
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --background: #ffffff;
+  --foreground: #202020;
+  --main: #3a3a3a;
+  --sub: #696969;
+  --main-dark: #f0f0f0;
+  --sub-dark: #bbbbbb;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+.layout {
+  @apply w-full block;
+}
+
+.main {
+  @apply p-topNav md:p-sideNav;
 }
