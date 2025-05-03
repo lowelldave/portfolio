@@ -1,5 +1,5 @@
 .section {
-    @apply w-full p-4 relative;
+    @apply w-full p-4 relative overflow-hidden;
 }
 
 .section__name {
@@ -7,15 +7,53 @@
 }
 
 .section__bg {
-    @apply absolute top-0 left-0 right-0 bottom-0 object-cover -z-20;
+    @apply absolute object-cover -z-20;
+
+    &.right,
+    &.left,
+    &.center {
+        @apply w-auto h-5/6 top-1/2 -translate-y-1/2 -translate-x-1/2;
+    }
+
+    &.right {
+        @apply right-0 -translate-x-5;
+    }
+
+    &.left {
+        @apply left-0 translate-x-5;
+    }
+
+    &.center {
+        @apply left-1/2;
+    }
+
+    &.fill {
+        @apply top-0 left-0 right-0 bottom-0 w-full h-full;
+    }
+}
+
+@keyframes move {
+    from {
+        background-position-x: left;
+    }
+
+    to {
+        background-position-x: right;
+    }
 }
 
 .section__overlay {
-    @apply absolute top-0 left-0 right-0 bottom-0 -z-10 bg-black opacity-50;
+    @apply absolute top-0 left-0 right-0 bottom-0 -z-10;
 
-    background-image: radial-gradient(#ebebeb 0.4px, #000000 0.8px);
-    background-size: 20px 20px;
+    &.none {}
+
+    &.dotted {
+        background-image: radial-gradient(#ebebeb 0.6px, #000000 0.8px);
+        background-size: 20px 20px;
+        animation: move 90s linear 2s infinite;
+    }
 }
+
 
 @media screen(md) {
     .section {

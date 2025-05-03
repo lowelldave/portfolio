@@ -22,8 +22,17 @@ export interface IProjectItem {
     imgUrl: string;
 }
 
+export interface ISocialItem {
+    id: number;
+    name: string;
+    label: string;
+    imgUrl: string;
+    linkUrl: string;
+}
+
 export interface IResponse {
     work: IWorkItem[];
     stack: IStackItem[];
     project: IProjectItem[];
+    social: ISocialItem[];
 }

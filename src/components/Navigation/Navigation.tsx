@@ -1,16 +1,32 @@
-import Link from 'next/link';
-import LinkItem from './LinkItem';
+'use client';
 
+import { useMediaQuery } from '@/hooks';
+
+import LinkItem from './LinkItem';
+import BurgerMenu from './BurgerMenu';
+import type { RouteList } from './navigation.type';
 import './style.css';
 
+const menu: RouteList = [
+  { label: 'HOME', url: '/' },
+  { label: 'ABOUT', url: '/about' },
+  { label: 'PROFILE', url: '/profile' },
+];
+
 const Navigation = () => {
+  const { isReached: isMobile, isScreenLoaded } = useMediaQuery(767);
+
   return (
     <div className="navigation">
-      <ul className="navigation__list">
-        <LinkItem label="HOME" url="/" />
-        <LinkItem label="ABOUT" url="/about" />
-        <LinkItem label="PROFILE" url="/profile" />
-      </ul>
+      {isScreenLoaded &&
+        (
+          isMobile ? 
+            <BurgerMenu route={menu} /> :
+            <ul className="navigation__list">
+              {menu.map(({ label, url }) => <LinkItem label={label} url={url} key={`route-${label}`} />)}
+            </ul>
+        )
+      }
     </div>
   )
 }

@@ -8,12 +8,12 @@ import "./style.css";
 
 const ProjectHistoryItem = ({ data }: { data: IProjectItem }) => {
   return (
-    <Link href={'#'} className="project-history__item">
+    <Link href={`/project/${data.id}`} className="project-history__item">
         <div className="project-history__image-container">
             <ImageWithFallback
                 className="project-history__image"
                 src={data.imgUrl}
-                alt={`image`}
+                alt={`${data.title}-image`}
                 loading="lazy"
                 fill
                 fallbackSrc="/default.webp"

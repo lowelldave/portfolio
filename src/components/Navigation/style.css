@@ -1,5 +1,33 @@
+@keyframes smoothIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20%);
+        display: none;
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        display: block;
+    }
+}
+
+@keyframes smoothOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+        display: block;
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(-20%);
+        display: none;
+    }
+}
+
 .navigation {
-    @apply fixed w-full h-topNav py-4 flex justify-center bg-background bg-opacity-5 border-r z-20 shadow-lg;
+    @apply fixed w-full h-topNav p-4 flex justify-end bg-background bg-opacity-5 border-r z-20 shadow-lg;
 }
 
 .navigation__list {
@@ -18,9 +46,56 @@
     @apply transition-all duration-300 ease-in-out text-sm font-roboto;
 }
 
+.burger-menu {
+    &__container {
+        @apply relative inline-block cursor-pointer;
+    }
+
+    &__bar-1,
+    &__bar-2,
+    &__bar-3 {
+        @apply bg-main my-1 w-6 h-1;
+    }
+    &__bar-1.open {
+        @apply -rotate-45 translate-y-2;
+    }
+    &__bar-2.open {
+        @apply opacity-0;
+    }
+    &__bar-3.open {
+        @apply rotate-45 -translate-y-2;
+    }
+
+    &__dropdown {
+        @apply absolute bg-background rounded-b top-full right-0 min-w-40 shadow-lg overflow-hidden;
+
+        &.open {
+            @apply block;
+            animation: smoothIn 0.25s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        &.close {
+            @apply hidden;
+            animation: smoothOut 0.25s  cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        
+    }
+
+    &__list {
+        @apply flex flex-col;
+        &-item {
+            @apply py-4 text-center border-y text-sm font-normal;
+
+            &.active {
+                @apply font-bold bg-mainDark tracking-widest;
+            }
+        } 
+    }
+}
+
 @media screen(md) {
     .navigation {
-        @apply bg-foreground w-sideNav h-full py-4;
+        @apply justify-center bg-foreground w-sideNav h-full py-4;
 
         &:hover {
             @apply w-36;
@@ -32,7 +107,7 @@
     }
 
     .navigation__list-item {
-        @apply text-mainDark px-4 py-2 border-y-2 border-x-0 border-transparent;
+        @apply text-mainDark px-4 py-2 border-y-2 border-x-0 border-transparent text-center;
 
         &.active {
             @apply border-y-mainDark;

@@ -20,23 +20,26 @@
     &__subtitle {
         @apply text-2xl w-full font-roboto font-light;
     }
-    
-    &__links-container {
-        @apply flex justify-center flex-col;
-    }
-    
-    &__links-wrapper {
-        @apply flex gap-6 bg-white bg-opacity-50 p-2;
-    }
-    
-    &__link-image {
-        @apply w-10 h-auto;
+
+    &__links {
+        &-container {
+            @apply flex justify-center flex-col;
+        }
+        
+        &-wrapper {
+            @apply flex gap-6 bg-white bg-opacity-50 p-2;
+        }
+        &-item {
+            @apply relative w-10 h-10;
+        }
+        
+        &-image {
+            @apply w-10 h-auto;
+        }
     }
 }
 
-
-
-@media screen(md) {
+@media screen(lg) {
     .hero {
         @apply flex-row justify-between self-auto;
 

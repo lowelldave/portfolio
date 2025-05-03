@@ -3,11 +3,20 @@ import { Hero, Section, TechStack, WorkHistory, ProjectHistory } from '../compon
 export default function Home() {
   return (
     <>
-      <Section className="h-screen flex" bgsrc="/sample.jpg">
+      <Section
+        className="h-screen flex"
+        settings={{
+          bgPosition:'fill',
+          bgSrc: '/sample.jpg',
+          overlay: {
+            style: 'dotted',
+          }
+        }}
+      >
         <Hero />
       </Section>
 
-      <Section title="Tech Stack" className="bg-background shadow-[inset_0px_0px_10px_5px_rgba(0,_0,_0,_0.1)]">
+      <Section title="Tech Stack" className="bg-background shadow-innerShadow">
         <TechStack />
       </Section>
 
@@ -15,8 +24,27 @@ export default function Home() {
         <WorkHistory />
       </Section>
 
-      <Section title="Project History" className="bg-mainDark shadow-[inset_0px_0px_10px_5px_rgba(0,_0,_0,_0.1)]">
+      <Section title="Project History" className="bg-mainDark shadow-innerShadow">
         <ProjectHistory />
+      </Section>
+
+      <Section title="Trainings and Certifications">
+        <h2>SAMPLE</h2>
+      </Section>
+
+      <Section
+        className="shadow-innerShadow"
+        settings={{
+          bgPosition:'fill',
+          bgSrc: '/sample.jpg',
+          overlay: {
+            style: 'dotted',
+            opacity: .5
+          }
+        }}
+      >
+        
+        <h2>SAMPLE</h2>
       </Section>
     </>
   );

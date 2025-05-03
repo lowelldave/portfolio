@@ -8,19 +8,15 @@
     }
     
     &__item {
-        @apply w-20 h-20 p-2 rounded-lg flex items-center flex-col justify-between box-border relative top-0 border-2 border-transparent;
+        @apply w-20 min-h-20 p-2 rounded-lg flex items-center flex-col justify-between box-border relative top-0 border-2 border-transparent;
     
         &:hover {
             @apply border-slate-200 shadow-[5px_5px_10px_0px_rgba(0,_0,_0,_0.1)] top-2 bg-white;
-    
-            /* & .techstack__name {
-                @apply text-2xl;
-            } */
         }
     }
     
     &__name {
-        @apply text-sm;
+        @apply text-sm text-center;
     }
     
     &__image {
@@ -35,11 +31,11 @@
         }
 
         &__item {
-            @apply w-28 h-28 p-4;
+            @apply w-28 p-4;
         }
 
         &__image {
-            @apply w-12 h-auto min-h-12;
+            @apply w-12 h-auto min-h-12 max-h-16;
         }
     }
 }

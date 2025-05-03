@@ -1,11 +1,14 @@
-import Link from 'next/link';
-import Image from 'next/image';
+import React from 'react';
 
-import React from 'react'
+import { readJSON } from '@/utils/file';
+import type { IResponse } from '@/types/data.type';
 
+import LinkItem from './LinkItem';
 import './style.css';
 
-const Hero = () => {
+const Hero = async () => {
+  const { social }: IResponse = await readJSON('/data.json');
+
   return (
     <div className="hero">
         <div className="hero__details-container">
@@ -17,42 +20,7 @@ const Hero = () => {
         </div>
         <div className="hero__links-container">
           <div className="hero__links-wrapper">
-            <div>
-              <Link href="https://www.facebook.com/SoulExtinction08">
-                <Image
-                  src={'https://cdn.svgporn.com/logos/facebook.svg'}
-                  width={0}
-                  height={0}
-                  alt={'facebook'}
-                  className="hero__link-image"
-                  loading="lazy"
-                />
-              </Link>
-            </div>
-            <div>
-              <Link href="https://www.linkedin.com/in/lowell-agnir/">
-                <Image
-                  src={'https://cdn.svgporn.com/logos/linkedin-icon.svg'}
-                  width={0}
-                  height={0}
-                  alt={'linkedin'}
-                  className="hero__link-image"
-                  loading="lazy"
-                />
-              </Link>
-            </div>
-            <div>
-              <Link href="https://github.com/lowelldave">
-                <Image
-                  src={'https://cdn.svgporn.com/logos/github-icon.svg'}
-                  width={0}
-                  height={0}
-                  alt={'github'}
-                  className="hero__link-image"
-                  loading="lazy"
-                />
-              </Link>
-            </div>
+            {social.map(item => <LinkItem data={item} key={`link-${item.name}`} />)}
           </div>
         </div>
     </div>

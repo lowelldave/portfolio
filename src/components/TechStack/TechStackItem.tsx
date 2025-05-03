@@ -1,6 +1,7 @@
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
+
+import { ImageWithFallback } from '@/components';
 
 import type { IStackItem } from '@/types/data.type';
 
@@ -14,13 +15,14 @@ const TechStackItem = ({ data }: { data: IStackItem }) => {
         target="_blank"
         className="techstack__item"
       >
-        <Image
+        <ImageWithFallback
           src={data.imgUrl ?? "#"}
           width={0}
           height={0}
           alt={data.name ?? ""}
           loading="lazy"
           className="techstack__image"
+          fallbackSrc="/default.webp"
         />
         <label className="techstack__name">{data.label ?? ""}</label>
       </Link>

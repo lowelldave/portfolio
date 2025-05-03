@@ -12,7 +12,7 @@ export default async function TechStack() {
   return (
     <div className="techstack">
         <div className="techstack__container">
-          {stack.map((item, idx: number) => <TechStackItem data={item} key={`stack-${item.id}`} />)}
+          {stack.map(item => <TechStackItem data={item} key={`stack-${item.id}`} />)}
         </div>
     </div>
   )

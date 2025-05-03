@@ -28,6 +28,9 @@ export default {
       },
       height: {
         topNav: "4rem",
+      },
+      boxShadow: {
+        innerShadow: 'inset 0px 0px 10px 5px rgba(0, 0, 0, 0.1)',
       }
     },
   },
