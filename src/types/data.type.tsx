@@ -30,9 +30,18 @@ export interface ISocialItem {
     linkUrl: string;
 }
 
+export interface ITrainingItem {
+    id: number;
+    name: string;
+    provider: string;
+    date: string;
+    linkUrl: string;
+}
+
 export interface IResponse {
     work: IWorkItem[];
     stack: IStackItem[];
     project: IProjectItem[];
     social: ISocialItem[];
+    training: ITrainingItem[];
 }

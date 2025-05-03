@@ -14,6 +14,7 @@ interface ISection extends React.PropsWithChildren {
       opacity?: number;
     };
   };
+  style?: any;
 }
 
 const Section = ({ children, ...props }: ISection) => {
@@ -23,7 +24,7 @@ const Section = ({ children, ...props }: ISection) => {
   const OLOpacity = props.settings?.overlay?.opacity ?? 0.3;
 
   return (
-    <section {...props} className={`${props.className ?? ""} section`}>
+    <section {...props} className={`${props.className ?? ""} section`} style={{ ...props.style }} >
       {isOLVisible && (
         <div
           className={`section__overlay ${OLStyle}`}

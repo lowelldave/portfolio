@@ -1,17 +1,14 @@
 import React from 'react';
 
-import { readJSON } from '@/utils/file';
-import type { IResponse } from '@/types/data.type';
+import type { IWorkItem } from '@/types/data.type';
 
 import WorkItem from './WorkItem';
 import './style.css';
 
-const WorkHistory = async () => {
-  const { work }: IResponse = await readJSON('/data.json');
-
+const WorkHistory = ({ data }: { data: IWorkItem[] }) => {
   return (
     <div className="work">
-      {work.map((item) =>  <WorkItem data={item} key={`workItem-${item.id}`} />)}
+      {data.map((item) =>  <WorkItem data={item} key={`workItem-${item.id}`} />)}
     </div>
   )
 };

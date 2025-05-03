@@ -233,5 +233,28 @@
             "imgUrl": "https://cdn.svgporn.com/logos/github-icon.svg",
             "linkUrl": "https://github.com/lowelldave"
         }
+    ],
+    "training": [
+        {
+            "id": 1,
+            "name": "Complete NodeJS Developer (GraphQL, MongoDB, + more)",
+            "linkUrl": "https://www.udemy.com/certificate/UC-6dfa87f0-45ec-4e40-b811-3f7ece42e3f5/",
+            "provider": "Zero to Mastery Academy",
+            "date": "April 2025"
+        },
+        {
+            "id": 2,
+            "name": "Next.js 15 & React - The Complete Guide",
+            "linkUrl": "https://www.udemy.com/certificate/UC-baae2015-6440-452b-9438-2c2ba6815d85/",
+            "provider": "Udemy",
+            "date": "May 2025"
+        },
+        {
+            "id": 3,
+            "name": "React & TypeScript - The Practical Guide",
+            "linkUrl": "https://www.udemy.com/certificate/UC-19943d60-ee7b-4b7c-97b2-f88fa38adfae/",
+            "provider": "Udemy",
+            "date": "May 2025"
+        }
     ]
 }

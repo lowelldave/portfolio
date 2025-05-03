@@ -1,0 +1,51 @@
+.training {
+    @apply grid grid-cols-2 gap-4 my-12;
+
+    &__item {
+        @apply relative border shadow-lg text-main rounded;
+    }
+
+    &__link {
+        @apply flex flex-col justify-between h-full w-full;
+    }
+
+    &__title {
+        @apply text-base font-bold max-w-md p-4;
+    }
+
+    &__details {
+        @apply flex flex-col justify-center bg-slate-200 p-2;
+    }
+
+    &__provider {
+        @apply font-semibold text-sm text-center;
+    }
+
+    &__date {
+        @apply text-xs text-center;
+    }
+}
+
+@media screen(md) {
+    .training {
+        @apply grid-cols-3 my-20;
+
+        &__title {
+            @apply text-lg font-bold;
+        }
+    
+        &__provider {
+            @apply text-sm;
+        }
+    
+        &__date {
+            @apply text-xs;
+        }
+    }
+}
+
+@media screen(lg) {
+    .training {
+        @apply grid-cols-4;
+    }
+}

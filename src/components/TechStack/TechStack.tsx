@@ -1,19 +1,18 @@
-import React from 'react'
+import React from 'react';
 
-import { readJSON } from '@/utils/file';
-import type { IResponse } from '@/types/data.type';
+import type { IStackItem } from '@/types/data.type';
 
 import TechStackItem from './TechStackItem';
 import './style.css';
 
-export default async function TechStack() {
-  const { stack }: IResponse = await readJSON('/data.json');
-
+const TechStack = ({ data }: { data: IStackItem[] }) => {
   return (
     <div className="techstack">
         <div className="techstack__container">
-          {stack.map(item => <TechStackItem data={item} key={`stack-${item.id}`} />)}
+          {data.map(item => <TechStackItem data={item} key={`stack-${item.id}`} />)}
         </div>
     </div>
   )
 };
+
+export default TechStack;

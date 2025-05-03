@@ -54,7 +54,7 @@
     }
 
     &__link-button {
-        @apply text-center py-1 rounded w-full bg-transparent text-main border-2 border-transparent;
+        @apply text-xs text-center py-1 rounded w-full bg-transparent text-main border-2 border-transparent;
 
         &:hover{
             @apply bg-main border-main text-mainDark;

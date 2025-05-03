@@ -1,7 +1,5 @@
 .techstack {
     @apply block;
-    opacity: view(block 0% 0, block 50% 1);
-    transform: translateY(view(block 0% 50px, block 50% 0));
 
     &__container {
         @apply flex gap-6 relative flex-wrap justify-evenly py-6;
