@@ -178,37 +178,37 @@
             "id": 1,
             "title": "Business Intelligence Application",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-            "imgUrl": "/#sample.jpg"
+            "imgUrl": ""
         },
         {
             "id": 2,
             "title": "Website Performance Analysis Application",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-            "imgUrl": "/#sample.jpg"
+            "imgUrl": ""
         },
         {
             "id": 3,
             "title": "Shopping Mall Feature Extensions",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-            "imgUrl": "/#sample.jpg"
+            "imgUrl": ""
         },
         {
             "id": 4,
             "title": "Solutions Admin Frontend Migration",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-            "imgUrl": "/#sample.jpg"
+            "imgUrl": ""
         },
         {
             "id": 5,
             "title": "Centalized Web Admin App",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-            "imgUrl": "/#sample.jpg"
+            "imgUrl": ""
         },
         {
             "id": 6,
             "title": "Online Shop Miniprogram",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-            "imgUrl": "/#sample.jpg"
+            "imgUrl": ""
         }
     ],
     "social": [

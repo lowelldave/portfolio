@@ -27,23 +27,23 @@
 }
 
 .navigation {
-    @apply fixed w-full h-topNav p-4 flex justify-end bg-background bg-opacity-5 border-r z-20 shadow-lg;
-}
+    @apply fixed w-full h-topNav p-4 flex justify-end bg-background bg-opacity-5 border-r-2 border-main z-20 shadow-lg;
 
-.navigation__list {
-    @apply flex flex-row justify-center gap-2;
-}
+    &__list {
+        @apply flex flex-row justify-center gap-2;
 
-.navigation__list-item {
-    @apply px-4 text-main content-center box-content border-x-2 border-y-0 border-transparent;
-
-    &.active {
-        @apply border-x-main;
+        &-item {
+            @apply px-4 text-main content-center box-content border-x-2 border-y-0 border-transparent;
+        
+            &.active {
+                @apply border-x-main;
+            }
+        }
     }
-}
 
-.navigation__link {
-    @apply transition-all duration-300 ease-in-out text-sm font-roboto;
+    &__link {
+        @apply transition-all duration-300 ease-in-out text-sm font-roboto;
+    }
 }
 
 .burger-menu {
@@ -54,8 +54,9 @@
     &__bar-1,
     &__bar-2,
     &__bar-3 {
-        @apply bg-main my-1 w-6 h-1;
+        @apply bg-mainDark my-1 w-6 h-1;
     }
+
     &__bar-1.open {
         @apply -rotate-45 translate-y-2;
     }
@@ -83,11 +84,12 @@
 
     &__list {
         @apply flex flex-col;
+
         &-item {
             @apply py-4 text-center border-y text-sm font-normal;
 
             &.active {
-                @apply font-bold bg-mainDark tracking-widest;
+                @apply font-bold bg-main tracking-widest;
             }
         } 
     }
@@ -100,17 +102,17 @@
         &:hover {
             @apply w-36;
         }
-    }
 
-    .navigation__list {
-        @apply flex-col gap-10;
-    }
+        &__list {
+            @apply flex-col gap-10;
 
-    .navigation__list-item {
-        @apply text-mainDark px-4 py-2 border-y-2 border-x-0 border-transparent text-center;
-
-        &.active {
-            @apply border-y-mainDark;
+            &-item {
+                @apply text-main px-4 py-2 border-y-2 border-x-0 border-transparent text-center;
+        
+                &.active {
+                    @apply border-y-main;
+                }
+            }
         }
     }
 }

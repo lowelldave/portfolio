@@ -1,82 +1,98 @@
+@keyframes move {
+    from { background-position-x: left; }
+    to { background-position-x: right; }
+}
+
 .section {
     @apply w-full p-4 relative overflow-hidden;
+
+    &__name {
+        @apply text-2xl font-bold mb-4;
+    }
+
+    &__bg {
+        @apply absolute -z-20;
+
+        &.right,
+        &.left,
+        &.center {
+            @apply w-auto h-5/6 top-1/2 -translate-y-1/2 -translate-x-1/2;
+        }
+
+        &.right {
+            @apply right-0 -translate-x-5;
+        }
+
+        &.left {
+            @apply left-0 translate-x-5;
+        }
+
+        &.center {
+            @apply left-1/2;
+        }
+
+        &.fill {
+            @apply object-cover top-0 left-0 right-0 bottom-0 w-full h-full;
+        }
+    }
+
+    &__overlay {
+        @apply absolute top-0 left-0 right-0 bottom-0 -z-10;
+
+        &.dotted {
+            background-image: radial-gradient(#ebebeb 0.6px, #000000 0.8px);
+            background-size: 20px 20px;
+            animation: move 90s linear 2s infinite;
+        }
+    }
+    
+    &.dark {
+        @apply bg-foreground;
+
+        & .section {
+            &__name {
+                @apply text-main;
+            }
+        }
+    }
+
+    &.light {
+        & .section {
+            &__name {
+                @apply text-main;
+            }
+        }
+    }
 }
-
-.section__name {
-    @apply text-2xl font-bold mb-4 text-main;
-}
-
-.section__bg {
-    @apply absolute object-cover -z-20;
-
-    &.right,
-    &.left,
-    &.center {
-        @apply w-auto h-5/6 top-1/2 -translate-y-1/2 -translate-x-1/2;
-    }
-
-    &.right {
-        @apply right-0 -translate-x-5;
-    }
-
-    &.left {
-        @apply left-0 translate-x-5;
-    }
-
-    &.center {
-        @apply left-1/2;
-    }
-
-    &.fill {
-        @apply top-0 left-0 right-0 bottom-0 w-full h-full;
-    }
-}
-
-@keyframes move {
-    from {
-        background-position-x: left;
-    }
-
-    to {
-        background-position-x: right;
-    }
-}
-
-.section__overlay {
-    @apply absolute top-0 left-0 right-0 bottom-0 -z-10;
-
-    &.none {}
-
-    &.dotted {
-        background-image: radial-gradient(#ebebeb 0.6px, #000000 0.8px);
-        background-size: 20px 20px;
-        animation: move 90s linear 2s infinite;
-    }
-}
-
 
 @media screen(md) {
     .section {
         @apply px-12 py-12;
-    }
 
-    .section__name {
-        @apply text-2xl mb-8;
+        &__name {
+            @apply text-2xl mb-8;
+        }
     }
 }
 
 @media screen(lg) {
     .section {
         @apply px-20;
-    }
 
-    .section__name {
-        @apply text-2xl;
+        &__name {
+            @apply text-2xl;
+        }
     }
 }
 
 @media screen(xl) {
     .section {
-        @apply px-28;
+        @apply px-40;
+    }
+}
+
+@media screen(2xl) {
+    .section {
+        @apply px-60;
     }
 }

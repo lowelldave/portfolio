@@ -2,33 +2,34 @@
     @apply flex w-full flex-col self-center;
 
     &__details-container {
-        @apply flex flex-col justify-center;
+        @apply flex flex-col justify-center px-10;
     
         & * {
-            @apply text-mainDark;
+            @apply text-main;
         }
     }
 
     &__greetings {
-        @apply text-2xl font-roboto font-light;
+        @apply text-base font-roboto font-light;
     }
 
     &__name {
-        @apply transition-all duration-500 ease-out text-6xl mb-1 font-roboto;
+        @apply text-4xl mb-1 font-roboto text-left;
     }
     
     &__subtitle {
-        @apply text-2xl w-full font-roboto font-light;
+        @apply text-xl w-full font-roboto font-light mb-2;
     }
 
     &__links {
         &-container {
-            @apply flex justify-center flex-col;
+            @apply flex justify-end flex-col px-10;
         }
         
         &-wrapper {
-            @apply flex gap-6 bg-white bg-opacity-50 p-2;
+            @apply flex gap-6 bg-white bg-opacity-50 py-2 px-2;
         }
+
         &-item {
             @apply relative w-10 h-10;
         }
@@ -39,13 +40,26 @@
     }
 }
 
+@media screen(md) {
+    .hero {
+        &__greetings {
+            @apply text-xl;
+        }
+        &__name {
+            @apply text-6xl;
+        }
+        &__details-container {
+            @apply p-0;
+        }
+        &__links-container {
+            @apply p-0;
+        }
+    }
+}
+
 @media screen(lg) {
     .hero {
         @apply flex-row justify-between self-auto;
-
-        &__details-container {
-            @apply justify-center;
-        }
     
         &__name {
             @apply text-6xl mb-4;
@@ -57,6 +71,16 @@
     
         &__subtitle {
             @apply text-2xl w-2/3;
+        }
+
+        &__details-container {
+            @apply justify-center;
+        }
+
+        &__links {
+            &-wrapper {
+                @apply px-10;
+            }
         }
     }
 

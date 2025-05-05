@@ -8,6 +8,7 @@ import {
   WorkHistory,
   ProjectHistory,
   Training,
+  ContactMe,
 } from "../components";
 
 export default async function Home() {
@@ -20,8 +21,11 @@ export default async function Home() {
       <Section
         className="h-screen flex"
         settings={{
-          bgPosition: "fill",
-          bgSrc: "/sample.jpg",
+          bg: {
+            src: "/hero-bg.jpg",
+            isFill: true,
+            objectPosition: "right",
+          },
           overlay: {
             style: "dotted",
           },
@@ -30,34 +34,24 @@ export default async function Home() {
         <Hero />
       </Section>
 
-      <Section title="Tech Stack" className="bg-background shadow-innerShadow">
+      <Section title="Tech Stack" className="shadow-innerShadow">
         <TechStack data={stack} />
       </Section>
 
-      <Section title="Work History">
+      <Section title="Work History" variant="dark">
         <WorkHistory data={work} />
       </Section>
 
-      <Section title="Project History" className="bg-mainDark shadow-innerShadow">
+      <Section title="Project History" className="shadow-innerShadow">
         <ProjectHistory data={project} />
       </Section>
 
-      <Section title="Trainings and Certifications">
+      <Section title="Trainings and Certifications" variant="dark">
         <Training data={training} />
       </Section>
 
-      <Section
-        className="shadow-innerShadow"
-        settings={{
-          bgPosition: "fill",
-          bgSrc: "/sample.jpg",
-          overlay: {
-            style: "dotted",
-            opacity: 0.5,
-          },
-        }}
-      >
-        <h2>SAMPLE</h2>
+      <Section className="shadow-innerShadow">
+        <ContactMe />
       </Section>
     </>
   );

@@ -3,17 +3,10 @@
 
 
     &__item {
-        @apply p-4 flex flex-col relative z-10;
+        @apply p-4 flex flex-col relative z-10 text-main border-transparent border-2 rounded-lg;
 
         &:hover {
-            & .work__item-wrapper {
-                @apply opacity-50;
-            }
-        }
-
-        &-wrapper {
-            @apply absolute top-0 left-0 right-0 bottom-0 -z-10 opacity-0 rounded-l-lg;
-            background-image: linear-gradient(to right, rgb(141, 141, 141), rgba(252, 252, 252, 1));
+            @apply border-main;
         }
     }
 
@@ -54,7 +47,7 @@
     }
 
     &__link-button {
-        @apply text-xs text-center py-1 rounded w-full bg-transparent text-main border-2 border-transparent;
+        @apply text-base text-center py-1 rounded w-full bg-transparent text-main border-2 border-transparent;
 
         &:hover{
             @apply bg-main border-main text-mainDark;

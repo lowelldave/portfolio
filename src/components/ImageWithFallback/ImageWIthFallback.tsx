@@ -4,11 +4,12 @@ import React, { useState } from 'react';
 import Image, { ImageProps } from 'next/image';
 
 interface ImageWithFallbackProps extends ImageProps {
-  fallbackSrc: string
+  fallbackSrc: string;
+  onError?: () => void;
 }
 
 const ImageWithFallback = (props: ImageWithFallbackProps) => {
-  const { src, fallbackSrc, ...rest } = props;
+  const { src, fallbackSrc, onError, ...rest } = props;
   const [imgSrc, setImgSrc] = useState(src);
 
   return (
@@ -16,6 +17,8 @@ const ImageWithFallback = (props: ImageWithFallbackProps) => {
       {...rest}
       src={imgSrc}
       onError={() => {
+        if (onError) onError();
+
         setImgSrc(fallbackSrc);
       }}
     />

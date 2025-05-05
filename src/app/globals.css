@@ -8,12 +8,12 @@
 }
 
 :root {
-  --background: #ffffff;
-  --foreground: #202020;
-  --main: #3a3a3a;
-  --sub: #696969;
-  --main-dark: #f0f0f0;
-  --sub-dark: #bbbbbb;
+  --background: #eeeeee;
+  --foreground: #222831;
+  --main: #DFD0B8;
+  --sub: #948979;
+  --main-dark: #222831;
+  --sub-dark: #393E46;
 }
 
 body {

@@ -1,5 +1,5 @@
 .training {
-    @apply grid grid-cols-2 gap-4 my-12;
+    @apply grid grid-cols-1 gap-4 my-10;
 
     &__item {
         @apply relative border shadow-lg text-main rounded;
@@ -10,11 +10,11 @@
     }
 
     &__title {
-        @apply text-base font-bold max-w-md p-4;
+        @apply text-base font-bold p-4 text-center;
     }
 
     &__details {
-        @apply flex flex-col justify-center bg-slate-200 p-2;
+        @apply flex flex-col justify-center bg-background text-mainDark p-2;
     }
 
     &__provider {
@@ -26,9 +26,15 @@
     }
 }
 
+@media screen(sm) {
+    .training {
+        @apply grid-cols-2;
+    }
+}
+
 @media screen(md) {
     .training {
-        @apply grid-cols-3 my-20;
+        @apply grid-cols-2 my-20;
 
         &__title {
             @apply text-lg font-bold;
@@ -46,6 +52,18 @@
 
 @media screen(lg) {
     .training {
+        @apply grid-cols-3;
+    }
+}
+
+@media screen(xl) {
+    .training {
         @apply grid-cols-4;
+    }
+}
+
+@media screen(2xl) {
+    .training {
+        @apply grid-cols-5;
     }
 }

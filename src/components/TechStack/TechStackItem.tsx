@@ -24,6 +24,7 @@ const TechStackItem = ({ data }: { data: IStackItem }) => {
             transition={{
                 delay: 0.25,
             }}
+            viewport={{ once: true }}
         >
             <Link
                 href={data.url}

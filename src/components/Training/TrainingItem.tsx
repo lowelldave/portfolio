@@ -23,6 +23,7 @@ const TrainingItem = ({ data }: { data: ITrainingItem }) => {
       whileHover={{
         transform: "translateY(-5%)",
       }}
+      viewport={{ once: true }}
     >
       <Link href={data.linkUrl} target="_blank" className="training__link">
         <h3 className="training__title">{data.name}</h3>

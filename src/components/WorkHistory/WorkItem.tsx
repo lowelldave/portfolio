@@ -22,8 +22,8 @@ const WorkItem = ({ data }: { data: IWorkItem }) => {
                     transform: "translateX(0%)",
                     opacity: 1,
                 }}
+                viewport={{ once: true }}
             >
-                <div className="work__item-wrapper" />
                 <div className="work__info">
                     <div className="work__info-container">
                         <h2 className="work__name">{data.name}</h2>

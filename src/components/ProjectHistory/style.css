@@ -2,24 +2,24 @@
     @apply grid grid-cols-1 gap-10;
     
     &__item {
-        @apply flex flex-col w-full rounded-lg overflow-hidden;
+        @apply flex flex-col w-full rounded-lg overflow-hidden shadow-lg bg-background border-slate-300 border;
 
         &:hover {
-            @apply bg-neutral-200;
+            @apply -translate-y-2;
         }
     }
 
     &__image {
-        @apply object-cover;
+        @apply object-cover object-center w-full h-auto top-1/2 -translate-y-1/2 !important;
 
         &-container {
-            @apply relative w-full h-36;
+            @apply relative w-full h-36 overflow-hidden bg-white shadow-md;
         }
     }
 
     &__details {
         &-container {
-            @apply p-4 relative block;
+            @apply p-4 relative block text-mainDark;
         }
     }
 
@@ -43,20 +43,6 @@
 
         &__description {
             @apply line-clamp-4;
-        }
-    }
-}
-
-@media screen(xl) {
-    .project-history {
-        &__item {
-            @apply flex-row;
-        }
-
-        &__image {
-            &-container {
-                @apply max-w-xs;
-            }
         }
     }
 }

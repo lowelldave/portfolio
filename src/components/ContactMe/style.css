@@ -1,0 +1,11 @@
+.contact-me {
+    @apply h-60 mb-20;
+
+    &__header {
+        @apply text-5xl font-bold;
+    }
+
+    &__container {
+        @apply flex flex-col;
+    }
+}
