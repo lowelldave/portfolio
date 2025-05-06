@@ -12,7 +12,7 @@ import {
 } from "../components";
 
 export default async function Home() {
-  const { project, stack, training, work }: IResponse = await readJSON(
+  const { project, stack, training, work, social }: IResponse = await readJSON(
     "/data.json"
   );
 
@@ -31,7 +31,7 @@ export default async function Home() {
           },
         }}
       >
-        <Hero />
+        <Hero data={social} />
       </Section>
 
       <Section title="Tech Stack" className="shadow-innerShadow">
@@ -51,7 +51,7 @@ export default async function Home() {
       </Section>
 
       <Section className="shadow-innerShadow">
-        <ContactMe />
+        <ContactMe data={social} />
       </Section>
     </>
   );

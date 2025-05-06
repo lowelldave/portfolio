@@ -1,11 +1,81 @@
 .contact-me {
-    @apply h-60 mb-20;
+    @apply min-h-60 py-40;
 
     &__header {
-        @apply text-5xl font-bold;
+        @apply text-4xl font-bold mb-1 text-center;
+    }
+
+    &__subheader {
+        @apply text-base text-sub text-center w-full;
+    }
+
+    &__content {
+        @apply flex flex-col justify-between;
     }
 
     &__container {
-        @apply flex flex-col;
+        @apply flex flex-1 p-10 flex-col;
+    }
+
+    &__divider {
+        @apply min-h-1 bg-mainDark relative;
+
+        &-text {
+            @apply absolute bg-background p-2 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-bold;
+        }
+    }
+
+    &__email {
+        &-form {
+            @apply flex relative flex-1 p-10 justify-center content-center;
+        }
+
+        &-button {
+            @apply bg-mainDark text-main px-10 py-4 text-xl rounded-lg border-2 border-transparent cursor-pointer content-center;
+    
+            &:hover {
+                @apply bg-background text-mainDark border-mainDark translate-y-2;
+            }
+        }
+    }
+
+    &__detail-group {
+        @apply flex flex-row text-left text-lg justify-between items-center;
+    }
+
+    &__social-wrapper {
+        @apply flex gap-4 py-2 px-2 justify-end;
+    }
+}
+
+@media screen(md) {
+    .contact-me {
+        @apply py-20;
+
+        &__header {
+            @apply text-5xl ;
+        }
+    
+        &__subheader {
+            @apply text-lg;
+        }
+        
+        &__content {
+            @apply flex-row mt-10;
+        }
+
+        &__detail-group {
+            @apply flex-col text-right mb-2 items-end;
+        }
+    
+        &__divider {
+            @apply min-w-1;
+        }
+
+        &__email {
+            &-form {
+                @apply block;
+            }
+        }
     }
 }

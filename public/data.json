@@ -160,7 +160,7 @@
             "id": 1,
             "name": "Cafe24 Philippines",
             "position": "Frontend Developer",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            "description": "Responsible for creating responsive and reactive webpages and also to improve and migrate existing legacy pages using modern technologies improving speed, stability, efficiency and securing future-proof webpages.",
             "date": "June 2019 - June 2023",
             "logoSrc": "/cafe24.png"
         },
@@ -168,7 +168,7 @@
             "id": 2,
             "name": "J6W Inc.",
             "position": "Frontend Developer",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            "description": "Responsible for creating the admin web systems and miniprograms suited for the client's business workflows to automate and improve overall efficiency and also responsible for improving and maintaining past projects that still being used and currently in production.",
             "date": "June 2024 - Nov 2024",
             "logoSrc": "/j6w.png"
         }

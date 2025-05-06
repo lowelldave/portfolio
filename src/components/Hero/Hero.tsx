@@ -1,13 +1,12 @@
 import React from 'react';
 
 import { readJSON } from '@/utils/file';
-import type { IResponse } from '@/types/data.type';
+import type { ISocialItem } from '@/types/data.type';
 
 import LinkItem from './LinkItem';
 import './style.css';
 
-const Hero = async () => {
-  const { social }: IResponse = await readJSON('/data.json');
+const Hero = async ({ data }: { data: ISocialItem[] }) => {
 
   return (
     <div className="hero">
@@ -20,7 +19,7 @@ const Hero = async () => {
         </div>
         <div className="hero__links-container">
           <div className="hero__links-wrapper">
-            {social.map(item => <LinkItem data={item} key={`link-${item.name}`} />)}
+            {data.map(item => <LinkItem data={item} key={`link-${item.name}`} />)}
           </div>
         </div>
     </div>
