@@ -177,37 +177,37 @@
         {
             "id": 1,
             "title": "Business Intelligence Application",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            "description": "A shop owner-side application that provides insights and recommendations for the campaigns, strategies and advertisements based on the past records of the mall and overall product trends to your region.",
             "imgUrl": ""
         },
         {
             "id": 2,
             "title": "Website Performance Analysis Application",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            "description": "Internal application that utilizes Google Lighthouse to analyze webpages of cafe24 to check the performace and produce reports on issues needed to be fixed, to improve overall the website's efficiency.",
             "imgUrl": ""
         },
         {
             "id": 3,
             "title": "Shopping Mall Feature Extensions",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            "description": "Extension apps for the shopping malls that uses the cafe24 shopping API for adding additional small features for the online shops to add more utilities for the online customer.",
             "imgUrl": ""
         },
         {
             "id": 4,
             "title": "Solutions Admin Frontend Migration",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            "description": "Migration of the admin web app for online stores from Legacy PHP to modern JS technology like React and Typescript.",
             "imgUrl": ""
         },
         {
             "id": 5,
             "title": "Centalized Web Admin App",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            "description": "WTEI project is a centralized admin web app for many business procedures and modules like inventory, customer management, reports, delivery and many more.",
             "imgUrl": ""
         },
         {
             "id": 6,
             "title": "Online Shop Miniprogram",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            "description": "Miniprogram is a program inside gcash application which primarily extends their products and services to the gcash users basically extends their online shop inside the app and using gcash as a payment platform for easier and convenient online shopping.",
             "imgUrl": ""
         }
     ],

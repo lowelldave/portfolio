@@ -9,6 +9,9 @@ export { default as TechStack } from './TechStack/TechStack';
 export { default as WorkHistory } from './WorkHistory/WorkHistory';
 export { default as Training } from './Training/Training';
 export { default as ContactMe } from './ContactMe/ContactMe';
+export { default as Education } from './Education/Education';
+export { default as AboutMe } from './AboutMe/AboutMe';
+export { default as Loading } from './Loading/Loading';
 
 // Common
 export { default as Section } from './Section/Section';

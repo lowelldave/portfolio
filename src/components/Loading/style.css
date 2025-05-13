@@ -1,0 +1,27 @@
+@keyframes BlurIn{
+    0% {
+        opacity: 0;
+        filter: blur(10px);
+        letter-spacing: 0px;
+    }
+    50% {
+        opacity: 1;
+        filter: blur(0px);
+        letter-spacing: 10px;
+    }
+    100% {
+        opacity: 0;
+        filter: blur(10px);
+        letter-spacing: 10px;
+    }
+}
+
+.loading {
+    @apply flex absolute top-0 left-0 right-0 bottom-0 w-full h-screen justify-center items-center bg-sub;
+
+    &__label {
+        @apply text-xl font-bold text-main;
+        animation: BlurIn 5s;
+        animation-iteration-count: infinite;
+    }
+}

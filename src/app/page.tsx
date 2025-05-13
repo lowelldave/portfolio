@@ -24,7 +24,7 @@ export default async function Home() {
           bg: {
             src: "/hero-bg.jpg",
             isFill: true,
-            objectPosition: "right",
+            objectPosition: "90% 0",
           },
           overlay: {
             style: "dotted",

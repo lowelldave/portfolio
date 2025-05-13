@@ -1,5 +1,5 @@
 .contact-me {
-    @apply min-h-60 py-40;
+    @apply min-h-60 py-20;
 
     &__header {
         @apply text-4xl font-bold mb-1 text-center;
@@ -50,7 +50,7 @@
 
 @media screen(md) {
     .contact-me {
-        @apply py-20;
+        @apply min-h-40 py-10;
 
         &__header {
             @apply text-5xl ;

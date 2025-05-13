@@ -9,7 +9,7 @@ interface ISection extends React.PropsWithChildren {
     bg?: {
       src: string;
       isFill?: boolean;
-      objectPosition?: "right" | "left" | "center";
+      objectPosition?: string;
       position?: "right" | "left" | "center";
     }
     overlay?: {

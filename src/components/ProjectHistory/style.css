@@ -28,7 +28,7 @@
     }
 
     &__description {
-        @apply text-sm text-ellipsis line-clamp-3;
+        @apply text-sm text-ellipsis line-clamp-3 text-justify;
     }
 }
 

@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { readJSON } from '@/utils/file';
 import type { ISocialItem } from '@/types/data.type';
 
 import LinkItem from './LinkItem';
