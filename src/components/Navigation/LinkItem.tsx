@@ -1,26 +1,29 @@
 'use client';
 
-import { usePathname } from 'next/navigation';
-import Link from 'next/link';
-
+import { useState, useEffect } from 'react';
 import './style.css';
 
 interface ILinkItem {
     label: string;
     url: string;
+    active: string;
 }
 
-const LinkItem = ({ label, url }: ILinkItem) => {
-    const pathname = usePathname();
+const LinkItem = ({ label, url, active }: ILinkItem) => {
+    const handleClick = (id: string) => () => {
+        const element = document.querySelector(id);
+
+        element?.scrollIntoView({ behavior: "smooth"});
+    }
     
     return (
-        <li className={`navigation__list-item ${pathname === url ? 'active' : ''}`}>
-            <Link
-                href={ url }
+        <li className={`navigation__list-item ${active === url ? 'active' : ''}`}>
+            <button
+                onClick={handleClick(url)}
                 className={`navigation__link`}
             >
                 { label }
-            </Link>
+            </button>
         </li>
     );
 };

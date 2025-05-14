@@ -4,9 +4,9 @@ import React from "react";
 import Link from "next/link";
 import { motion } from "motion/react";
 
+import { ImageWithFallback } from "@/components";
 import type { IWorkItem } from "@/types/data.type";
 
-import ImageWithFallback from "../ImageWithFallback/ImageWIthFallback";
 import "./style.css";
 
 const WorkItem = ({ data }: { data: IWorkItem }) => {

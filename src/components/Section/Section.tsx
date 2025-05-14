@@ -20,6 +20,7 @@ interface ISection extends React.PropsWithChildren {
   };
   variant?: 'dark' | 'light',
   style?: { [key: string]: string | number };
+  id?: string;
 }
 
 const Section = ({ children, ...props }: ISection) => {

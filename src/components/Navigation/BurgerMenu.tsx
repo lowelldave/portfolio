@@ -6,13 +6,19 @@ import { usePathname } from 'next/navigation';
 
 import type { RouteList } from './navigation.type';
 
-function BurgerMenu({ route }: { route: RouteList }) {
+function BurgerMenu({ route, active }: { route: RouteList, active: string }) {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 
   const handleToggle = () => {
     setIsOpen(!isOpen);
   };
+
+  const handleClick = (id: string) => () => {
+    const element = document.querySelector(id);
+
+    element?.scrollIntoView({ behavior: "smooth"});
+}
 
   return (
     <div className="burger-menu">
@@ -24,13 +30,13 @@ function BurgerMenu({ route }: { route: RouteList }) {
       <div className={`burger-menu__dropdown ${isOpen ? 'open' : 'close'}`}>
         <nav className="burger-menu__list">
           {route.map(({ label, url }) =>
-            <Link
-              href={url}
+            <button
+              onClick={handleClick(url)}
               key={`route-${label}`}
-              className={`burger-menu__list-item ${pathname === url ? 'active' : ''}`}
+              className={`burger-menu__list-item ${active === url ? 'active' : ''}`}
             >
               {label}
-            </Link>
+            </button>
           )}
         </nav>
       </div>

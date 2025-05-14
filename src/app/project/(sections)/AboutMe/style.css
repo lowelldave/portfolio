@@ -1,0 +1,23 @@
+.about-me {
+    @apply flex flex-col;
+
+    &__header {
+        @apply text-4xl font-bold mb-2 text-mainDark;
+    }
+
+    &__description {
+        @apply max-w-full text-sm text-justify text-background bg-subDark p-4 mb-4;
+    }
+}
+
+@media screen(md) {
+    .about-me {
+        &__header {
+            @apply text-6xl mb-8;
+        }
+
+        &__description {
+            @apply max-w-full;
+        }
+    }
+}

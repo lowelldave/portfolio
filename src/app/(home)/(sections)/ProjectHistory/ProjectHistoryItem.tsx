@@ -3,9 +3,9 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 
+import { ImageWithFallback } from "@/components";
 import type { IProjectItem } from "@/types/data.type";
 
-import ImageWithFallback from "../ImageWithFallback/ImageWIthFallback";
 import "./style.css";
 
 const ProjectHistoryItem = ({ data }: { data: IProjectItem }) => {
