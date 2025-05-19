@@ -1,14 +1,7 @@
-import { readJSON } from "@/utils/file";
-import type { IResponse } from "@/types/data.type";
-
 import { Section } from "@/components";
 import { Hero, ContactMe, ProjectHistory, TechStack, Training, WorkHistory } from './(sections)';
 
-export default async function Home() {
-  const { project, stack, training, work, social }: IResponse = await readJSON(
-    "/data.json"
-  );
-
+export default function Home() {
   return (
     <>
       <Section
@@ -25,27 +18,27 @@ export default async function Home() {
         }}
         id="hero"
       >
-        <Hero data={social} />
+        <Hero />
       </Section>
 
       <Section title="Tech Stack" className="shadow-innerShadow" id="techstack">
-        <TechStack data={stack} />
+        <TechStack />
       </Section>
 
       <Section title="Work History" variant="dark" id="work">
-        <WorkHistory data={work} />
+        <WorkHistory />
       </Section>
 
       <Section title="Project History" className="shadow-innerShadow" id="project">
-        <ProjectHistory data={project} />
+        <ProjectHistory />
       </Section>
 
       <Section title="Trainings and Certifications" variant="dark" id="training">
-        <Training data={training} />
+        <Training />
       </Section>
 
       <Section className="shadow-innerShadow">
-        <ContactMe data={social} />
+        <ContactMe />
       </Section>
     </>
   );

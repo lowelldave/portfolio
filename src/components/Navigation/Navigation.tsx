@@ -42,7 +42,8 @@ const Navigation = () => {
     });
 
     return () => {
-      observer.disconnect();
+      if (observer)
+        observer.disconnect();
     }
   }, []);
 

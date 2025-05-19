@@ -1,0 +1,31 @@
+.project {
+    @apply p-10;
+
+    &__wrapper {
+        @apply inline-block mb-10;
+    }
+
+    &__title {
+        @apply text-4xl mb-2 font-bold text-main bg-mainDark p-2;
+    }
+
+    &__subtitle {
+        @apply text-xl mb-10;
+    }
+
+    &__description {
+        @apply text-sm max-w-sm ;
+    }
+}
+
+.stack {
+    @apply block border-2 border-mainDark p-4 rounded-lg;
+
+    &__title {
+        @apply text-xl font-bold mb-4 bg-mainDark text-main p-2 rounded-lg;
+    }
+
+    &__container {
+        @apply flex gap-4 flex-wrap;
+    }
+}

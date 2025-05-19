@@ -20,6 +20,7 @@ export interface IProjectItem {
     title: string;
     description: string;
     imgUrl: string;
+    work_id: number;
 }
 
 export interface ISocialItem {

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from 'next/link';
 import { motion, AnimatePresence } from "motion/react";
 
 import { ImageWithFallback } from "@/components";
@@ -24,7 +25,10 @@ const ProjectHistoryItem = ({ data }: { data: IProjectItem }) => {
       viewport={{ once: true }}
     >
         {/* Use Modal for details  */}
-      <div className="project-history__item">
+      <Link
+        href={`/project/${data.id}`}
+        className="project-history__item"
+      >
         {isShow && (
           <AnimatePresence mode="wait">
             <motion.div className="project-history__image-container" layout>
@@ -44,7 +48,7 @@ const ProjectHistoryItem = ({ data }: { data: IProjectItem }) => {
           <h3 className="project-history__title">{data.title}</h3>
           <p className="project-history__description">{data.description}</p>
         </div>
-      </div>
+      </Link>
     </motion.div>
   );
 };

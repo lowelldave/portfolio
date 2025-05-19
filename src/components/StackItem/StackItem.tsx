@@ -30,18 +30,18 @@ const TechStackItem = ({ data }: { data: IStackItem }) => {
                 href={data.url}
                 rel="noopener noreferrer"
                 target="_blank"
-                className="techstack__item"
+                className="stack__item"
             >
                 <ImageWithFallback
                     src={data.imgUrl ?? "#"}
-                    width={0}
-                    height={0}
+                    width={100}
+                    height={100}
                     alt={data.name ?? ""}
                     loading="lazy"
-                    className="techstack__image"
+                    className="stack__image"
                     fallbackSrc="/default.webp"
                 />
-                <label className="techstack__name">{data.label ?? ""}</label>
+                <label className="stack__name">{data.label ?? ""}</label>
             </Link>
         </motion.div>
     );

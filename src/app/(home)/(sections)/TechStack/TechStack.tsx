@@ -1,18 +1,34 @@
-import React from 'react';
+'use client';
 
-import type { IStackItem } from '@/types/data.type';
+import React from "react";
+import { useQuery } from "@tanstack/react-query";
 
-import TechStackItem from './TechStackItem';
-import './style.css';
+import type { IStackItem } from "@/types/data.type";
+import { StackItem, ItemLoader } from "@/components";
+import { getStack } from "@/api/data";
 
-const TechStack = ({ data }: { data: IStackItem[] }) => {
-  return (
-    <div className="techstack">
-        <div className="techstack__container">
-          {data.map(item => <TechStackItem data={item} key={`stack-${item.id}`} />)}
+import "./style.css";
+
+const TechStack = () => {
+    const { data, isFetching } = useQuery<IStackItem[]>({
+        queryKey: ["api/getStack"],
+        queryFn: getStack,
+        initialData: [],
+    });
+
+    return (
+        <div className="techstack">
+            <div className="techstack__container">
+                {isFetching ? (
+                    <ItemLoader />
+                ) : (
+                    data.map((item) => (
+                        <StackItem data={item} key={`stack-${item.id}`} />
+                    ))
+                )}
+            </div>
         </div>
-    </div>
-  )
+    );
 };
 
 export default TechStack;

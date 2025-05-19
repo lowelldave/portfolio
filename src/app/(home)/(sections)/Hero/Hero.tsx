@@ -1,11 +1,9 @@
 import React from 'react';
 
-import type { ISocialItem } from '@/types/data.type';
-
-import LinkItem from './LinkItem';
+import LinkList from './LinkList';
 import './style.css';
 
-const Hero = async ({ data }: { data: ISocialItem[] }) => {
+const Hero = () => {
 
   return (
     <div className="hero">
@@ -16,11 +14,7 @@ const Hero = async ({ data }: { data: ISocialItem[] }) => {
                 Frontend developer that specializes in UI/UX designs.
             </label>
         </div>
-        <div className="hero__links-container">
-          <div className="hero__links-wrapper">
-            {data.map(item => <LinkItem data={item} key={`link-${item.name}`} />)}
-          </div>
-        </div>
+        <LinkList />
     </div>
   )
 }
