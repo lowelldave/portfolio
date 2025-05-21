@@ -2,7 +2,7 @@
     @apply p-10;
 
     &__wrapper {
-        @apply inline-block mb-10;
+        @apply mb-10 w-full;
     }
 
     &__title {

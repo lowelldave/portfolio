@@ -21,6 +21,7 @@ export interface IProjectItem {
     description: string;
     imgUrl: string;
     work_id: number;
+    stack_id: number[];
 }
 
 export interface ISocialItem {
@@ -45,4 +46,10 @@ export interface IResponse {
     project: IProjectItem[];
     social: ISocialItem[];
     training: ITrainingItem[];
+}
+
+export interface IResponseGetProjectData {
+    project?: IProjectItem;
+    work?: IWorkItem;
+    stack?: IStackItem[];
 }

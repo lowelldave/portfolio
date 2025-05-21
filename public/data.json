@@ -186,42 +186,48 @@
             "title": "Business Intelligence Application",
             "description": "A shop owner-side application that provides insights and recommendations for the campaigns, strategies and advertisements based on the past records of the mall and overall product trends to your region.",
             "imgUrl": "",
-            "work_id": 1
+            "work_id": 1,
+            "stack_id": [1, 2, 3, 4, 10, 11, 12, 15, 21]
         },
         {
             "id": 2,
             "title": "Website Performance Analysis Application",
             "description": "Internal application that utilizes Google Lighthouse to analyze webpages of cafe24 to check the performace and produce reports on issues needed to be fixed, to improve overall the website's efficiency.",
             "imgUrl": "",
-            "work_id": 1
+            "work_id": 1,
+            "stack_id": [1, 2, 3, 4, 5]
         },
         {
             "id": 3,
             "title": "Shopping Mall Feature Extensions",
             "description": "Extension apps for the shopping malls that uses the cafe24 shopping API for adding additional small features for the online shops to add more utilities for the online customer.",
             "imgUrl": "",
-            "work_id": 1
+            "work_id": 1,
+            "stack_id": [1, 2, 3, 4, 5, 15, 16]
         },
         {
             "id": 4,
             "title": "Solutions Admin Frontend Migration",
             "description": "Migration of the admin web app for online stores from Legacy PHP to modern JS technology like React and Typescript.",
             "imgUrl": "",
-            "work_id": 1
+            "work_id": 1,
+            "stack_id": [1, 2, 3, 4, 5, 6, 7, 12, 15, 16, 22]
         },
         {
             "id": 5,
             "title": "Centalized Web Admin App",
             "description": "WTEI project is a centralized admin web app for many business procedures and modules like inventory, customer management, reports, delivery and many more.",
             "imgUrl": "",
-            "work_id": 2
+            "work_id": 2,
+            "stack_id": [1, 2, 3, 4, 5, 6, 7, 9, 12, 13, 22]
         },
         {
             "id": 6,
             "title": "Online Shop Miniprogram",
             "description": "Miniprogram is a program inside gcash application which primarily extends their products and services to the gcash users basically extends their online shop inside the app and using gcash as a payment platform for easier and convenient online shopping.",
             "imgUrl": "",
-            "work_id": 2
+            "work_id": 2,
+            "stack_id": [1, 2, 3, 15, 16, 23]
         }
     ],
     "social": [
