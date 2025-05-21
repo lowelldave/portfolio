@@ -14,7 +14,7 @@ interface IStackList {
 const StackList = ({ data }: IStackList) => {
     return (
         <div className="stack">
-            <h2 className="stack__title">Tech Stack Used:</h2>
+            <h2 className="stack__title">Tech Stack</h2>
             <div className="stack__container">
                 {data.stack.map((item) => (
                     <StackItem data={item} key={`stack-${item.id}`} />

@@ -1,7 +1,6 @@
 import React from "react";
 
 import ProjectDetails from "./ProjectDetails";
-
 import "./style.css";
 
 const ProjectPage = async ({ params }: { params: Promise<{ id: string }> }) => {
