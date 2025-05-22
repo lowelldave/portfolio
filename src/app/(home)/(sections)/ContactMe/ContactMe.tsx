@@ -21,7 +21,7 @@ const ContactMe = () => {
         <div className="contact-me">
             <h2 className="contact-me__header">Wanna reach out?</h2>
             <p className="contact-me__subheader">
-                I would love to hear anything from you. <br /> Let's have a nice
+                I would love to hear anything from you. <br /> Let&apos;s have a nice
                 chat, shall we?
             </p>
 

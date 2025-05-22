@@ -23,7 +23,7 @@ export const useMediaQuery = (width: number) => {
     setIsScreenLoaded(true);
 
     return () => media.removeEventListener("change", updateTarget);
-  }, []);
+  }, [width, updateTarget]);
 
   return { isReached: targetReached, isScreenLoaded };
 };

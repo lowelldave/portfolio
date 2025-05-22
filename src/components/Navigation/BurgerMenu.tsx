@@ -1,14 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 
 import type { RouteList } from './navigation.type';
 
 function BurgerMenu({ route, active }: { route: RouteList, active: string }) {
   const [isOpen, setIsOpen] = useState(false);
-  const pathname = usePathname();
 
   const handleToggle = () => {
     setIsOpen(!isOpen);

@@ -18,7 +18,7 @@ interface IProjectDetails {
 
 const ProjectDetails = ({ projectId }: IProjectDetails) => {
 
-    const { data, isFetching, isError } = useQuery<
+    const { data, isFetching } = useQuery<
         IResponseGetProjectData | undefined
     >({
         queryKey: ["api/getProjectById"],
