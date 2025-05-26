@@ -1,0 +1,11 @@
+.topbar {
+    @apply bg-mainDark h-12 w-full px-10 py-2 flex items-center justify-start gap-4;
+
+    &__button {
+        @apply bg-main px-4 py-2 rounded-lg text-sm font-bold;
+    }
+
+    &__label {
+        @apply text-main text-xl font-bold;
+    }
+}

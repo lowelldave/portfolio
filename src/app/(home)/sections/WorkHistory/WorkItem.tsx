@@ -48,7 +48,7 @@ const WorkItem = ({ data }: { data: IWorkItem }) => {
 
                 <div className="work__action-container">
                     <Link
-                        href={`/work-history/${data.id}`}
+                        href={`/work/${data.id}`}
                         className="work__link-button"
                     >
                         More Details

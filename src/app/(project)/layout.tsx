@@ -2,7 +2,7 @@ import type { PropsWithChildren } from "react";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
-import { Footer, ProjectTopBar } from "@/components";
+import { Footer, TopBar } from "@/components";
 
 import Providers from "../(home)/providers";
 import "../globals.css";
@@ -29,7 +29,7 @@ const ProjectLayout = ({ children }: PropsWithChildren) => {
                 className={`${geistSans.variable} ${geistMono.variable} antialiased`}
             >
                 <Providers>
-                    <ProjectTopBar />
+                    <TopBar type="project" />
                     <div className="layout">
                         <main className="main-project">{children}</main>
                     </div>

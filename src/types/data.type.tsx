@@ -53,3 +53,9 @@ export interface IResponseGetProjectData {
     work?: IWorkItem;
     stack?: IStackItem[];
 }
+
+export interface IResponseGetWorkData {
+    work?: IWorkItem;
+    project?: IProjectItem[];
+    stack?: IStackItem[];
+}

@@ -3,7 +3,15 @@
 import React, { ReactEventHandler } from "react";
 import { useRouter } from 'next/navigation';
 
-const ProjectTopBar = () => {
+import { toTitleCase } from '@/utils/string';
+
+import './style.css';
+
+interface ITopBar {
+    type: 'work' | 'project';
+}
+
+const TopBar = ({ type }: ITopBar) => {
     const router = useRouter();
 
     const handleBackClick: ReactEventHandler<HTMLButtonElement> = (e)  => {
@@ -12,19 +20,19 @@ const ProjectTopBar = () => {
     };
 
     return (
-        <div className="bg-mainDark h-12 w-full px-10 py-2 flex items-center justify-start gap-4">
+        <div className="topbar">
             <button
-                className="bg-main px-4 py-2 rounded-lg text-sm font-bold"
+                className="topbar__button"
                 onClick={handleBackClick}
             >
                 &lt; Back
             </button>
-            <label className="text-main text-xl font-bold">
-                Project Details
+            <label className="topbar__label">
+                {`${toTitleCase(type ?? '')} Details`} 
             </label>
             
         </div>
     );
 };
 
-export default ProjectTopBar;
+export default TopBar;
