@@ -28,6 +28,11 @@ body {
 
 .layout {
   @apply w-full block;
+
+  &.details {
+    @apply max-w-4xl;
+    justify-self: center;
+  }
 }
 
 .main {

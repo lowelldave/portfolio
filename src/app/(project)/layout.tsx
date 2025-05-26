@@ -30,7 +30,7 @@ const ProjectLayout = ({ children }: PropsWithChildren) => {
             >
                 <Providers>
                     <TopBar type="project" />
-                    <div className="layout">
+                    <div className="layout details">
                         <main className="main-project">{children}</main>
                     </div>
                     <Footer />
