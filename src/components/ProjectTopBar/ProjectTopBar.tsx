@@ -1,12 +1,13 @@
 "use client";
 
-import React from "react";
+import React, { ReactEventHandler } from "react";
 import { useRouter } from 'next/navigation';
 
 const ProjectTopBar = () => {
     const router = useRouter();
 
-    const handleBackClick = () => {
+    const handleBackClick: ReactEventHandler<HTMLButtonElement> = (e)  => {
+        e.preventDefault();
         router.back();
     };
 

@@ -1,6 +1,6 @@
 import React from "react";
 
-import { AboutMe, Education } from './(sections)';
+import { AboutMe, Education } from './sections';
 
 import { Section } from "@/components";
 
