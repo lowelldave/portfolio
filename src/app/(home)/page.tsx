@@ -1,5 +1,12 @@
 import { Section } from "@/components";
-import { Hero, ContactMe, ProjectHistory, TechStack, Training, WorkHistory } from './sections';
+import {
+  Hero,
+  ContactMe,
+  ProjectHistory,
+  TechStack,
+  Training,
+  WorkHistory,
+} from "./sections";
 
 export default function Home() {
   return (
@@ -29,11 +36,19 @@ export default function Home() {
         <WorkHistory />
       </Section>
 
-      <Section title="Project History" className="shadow-innerShadow" id="project">
+      <Section
+        title="Project History"
+        className="shadow-innerShadow"
+        id="project"
+      >
         <ProjectHistory />
       </Section>
 
-      <Section title="Trainings and Certifications" variant="dark" id="training">
+      <Section
+        title="Trainings and Certifications"
+        variant="dark"
+        id="training"
+      >
         <Training />
       </Section>
 

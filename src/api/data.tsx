@@ -1,114 +1,221 @@
-import type {
-    IResponse,
-    IResponseGetProjectData,
-    IResponseGetWorkData,
-} from "@/types/data.type";
+import { createClient } from "@/utils/supabase/client";
+
+const supabase = createClient();
+
+// export const getWorkById = async (
+//   id: number,
+// ): Promise<IResponseGetWorkData | undefined> => {
+//   try {
+//     const { project, work, stack }: IResponse = await fetch("/data.json").then(
+//       (data) => data.json(),
+//     );
+
+//     const returnObj: IResponseGetWorkData = {};
+
+//     const workData = work.find((item) => item.id === id);
+
+//     if (!workData) throw new Error("No found data");
+
+//     const projectData = project.filter((item) => item.work_id === id);
+
+//     returnObj.project = projectData;
+
+//     if (workData) returnObj.work = workData;
+
+//     const stackIdList: number[] = projectData.reduce(
+//       (prev: number[], curr, idx) => {
+//         if (idx === 0) return [...curr.stack_id];
+
+//         // return new unique array of ids
+//         return [...new Set([...prev, ...curr.stack_id])];
+//       },
+//       [],
+//     );
+
+//     const stackList = stack.filter((item) => stackIdList.includes(item.id));
+
+//     returnObj.stack = stackList;
+
+//     return returnObj;
+//   } catch (err) {
+//     console.log("Error", err);
+//   }
+// };
 
 export const getSocials = async () => {
-    const { social }: IResponse = await fetch("/data.json").then((data) =>
-        data.json()
-    );
+  const { data, error } = await supabase
+    .from("social")
+    .select(
+      `
+      id,
+      name,
+      label,
+      img_url,
+      link_url,
+      profile!inner(
+        name
+      )
+    `,
+    )
+    .eq("profile.id", 1);
 
-    return social ?? [];
+  if (error) throw error;
+  return data;
 };
 
 export const getStack = async () => {
-    const { stack }: IResponse = await fetch("/data.json").then((data) =>
-        data.json()
-    );
+  const { data, error } = await supabase.from("tech_stack").select("*");
 
-    return stack ?? [];
+  if (error) throw error;
+  return data;
 };
 
-export const getWork = async () => {
-    const { work }: IResponse = await fetch("/data.json").then((data) =>
-        data.json()
-    );
+export const getProfessionalExp = async () => {
+  const { data, error } = await supabase
+    .from("professional_experience")
+    .select(
+      `
+    id,
+    position,
+    description,
+    date,
+    logo_src,
+    profile!inner(
+      name
+    )
+    `,
+    )
+    .eq("profile.id", 1);
 
-    return work ?? [];
+  if (error) throw error;
+  return data;
 };
 
-export const getProject = async () => {
-    const { project }: IResponse = await fetch("/data.json").then((data) =>
-        data.json()
-    );
+export const getProjects = async () => {
+  const query = supabase
+    .from("project")
+    .select(
+      `
+    id,
+    title,
+    description,
+    img_url,
+    work_id,
+    profile_id,
+    profile!inner(
+      id,
+      name
+    ),
+    professional_experience!inner(
+      id,
+      position,
+      company:company(name)
+    )
+    `,
+    )
+    .eq("profile.id", 1);
 
-    return project ?? [];
+  const { data, error } = await query;
+
+  if (error) throw error;
+  return data;
 };
 
 export const getTraining = async () => {
-    const { training }: IResponse = await fetch("/data.json").then((data) =>
-        data.json()
-    );
+  const { data, error } = await supabase
+    .from("training")
+    .select(
+      `
+    id,
+    name,
+    link_url,
+    date,
+    provider,
+    profile!inner(
+      name
+    )
+    `,
+    )
+    .eq("profile.id", 1);
 
-    return training ?? [];
+  if (error) throw error;
+  return data;
 };
 
-export const getProjectById = async (
-    id: number
-): Promise<IResponseGetProjectData | undefined> => {
-    try {
-        const { project, work, stack }: IResponse = await fetch(
-            "/data.json"
-        ).then((data) => data.json());
+export const getProject = (id: string) => async () => {
+  const query = supabase
+    .from("project_stack")
+    .select(
+      `
+    id,
+    project!inner(
+      id,
+      title,
+      description,
+      img_url,
+      professional_experience!inner(
+        position,
+        company!inner(
+          name
+        )
+      )
+    ),
+    tech_stack!inner(
+      id,
+      name,
+      label,
+      link_url,
+      img_url
+    )
+    `,
+    )
+    .eq("project.id", parseInt(id));
 
-        const returnObj: IResponseGetProjectData = {};
+  const { data, error } = await query;
 
-        const projectData = project.find((item) => item.id === id);
+  if (error) throw error;
 
-        if (!projectData) throw new Error("No found data");
-        returnObj.project = projectData;
-
-        const workData = work.find((item) => item.id === projectData.work_id);
-        if (workData) returnObj.work = workData;
-
-        const stackData = stack.filter((item) =>
-            projectData.stack_id.includes(item.id)
-        );
-        returnObj.stack = stackData;
-
-        return returnObj;
-    } catch (err) {
-        console.log("Error", err);
-    }
+  return data;
 };
 
-export const getWorkById = async (
-    id: number
-): Promise<IResponseGetWorkData | undefined> => {
-    try {
-        const { project, work, stack }: IResponse = await fetch(
-            "/data.json"
-        ).then((data) => data.json());
+export const getWork = (id: string) => async () => {
+  const query = supabase
+    .from("professional_experience")
+    .select(
+      `
+    id,
+    position,
+    description,
+    date,
+    logo_src,
+    company!inner(
+      name
+    ),
+    project!inner(
+      id,
+      title,
+      description,
+      img_url
+    )
+    `,
+    )
+    .eq("id", parseInt(id));
 
-        const returnObj: IResponseGetWorkData = {};
+  const { data, error } = await query;
 
-        const workData = work.find((item) => item.id === id);
+  if (error) throw error;
 
-        if (!workData) throw new Error("No found data");
-
-        const projectData = project.filter((item) => item.work_id === id);
-
-        returnObj.project = projectData;
-
-        if (workData) returnObj.work = workData;
-
-        const stackIdList: number[] = projectData.reduce(
-            (prev: number[], curr, idx) => {
-                if (idx === 0) return [...curr.stack_id];
-                
-                // return new unique array of ids
-                return [...new Set([...prev, ...curr.stack_id])];
-            },
-            []
-        );
-
-        const stackList = stack.filter((item) => stackIdList.includes(item.id));
-
-        returnObj.stack = stackList;
-
-        return returnObj;
-    } catch (err) {
-        console.log("Error", err);
-    }
+  return data;
 };
+
+export type StackResponse = Awaited<ReturnType<typeof getStack>>;
+export type SocialResponse = Awaited<ReturnType<typeof getSocials>>;
+export type ProfessionalExpResponse = Awaited<
+  ReturnType<typeof getProfessionalExp>
+>;
+export type TrainingResponse = Awaited<ReturnType<typeof getTraining>>;
+export type ProjectsResponse = Awaited<ReturnType<typeof getProjects>>;
+export type ProjectResponse = Awaited<
+  ReturnType<ReturnType<typeof getProject>>
+>;
+export type WorkResponse = Awaited<ReturnType<ReturnType<typeof getWork>>>;

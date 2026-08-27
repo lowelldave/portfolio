@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 import "./style.css";
 
@@ -7,7 +8,7 @@ const Education = () => {
     <div className="education">
       <div className="education__item">
         <div className="education__image-wrapper">
-          <img src="/pup.png" className="education__image" />
+          <Image src="/pup.png" className="education__image" alt="education" />
         </div>
         <div className="education__detail-wrapper">
           <h2 className="education__school">
