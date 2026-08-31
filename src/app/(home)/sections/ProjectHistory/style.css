@@ -1,54 +1,53 @@
 .project-history {
-    @apply flex justify-center;
+  @apply flex justify-center;
 
-    &__wrapper {
-        @apply grid grid-cols-1 gap-10;
+  &__wrapper {
+    @apply grid grid-cols-1 gap-5;
+  }
+
+  &__item {
+    @apply flex flex-col w-full rounded-lg overflow-hidden shadow-lg bg-background border-slate-300 border;
+
+    &:hover {
+      @apply -translate-y-2;
     }
-    
-    &__item {
-        @apply flex flex-col w-full rounded-lg overflow-hidden shadow-lg bg-background border-slate-300 border;
+  }
 
-        &:hover {
-            @apply -translate-y-2;
-        }
+  &__image {
+    @apply object-cover object-center w-full h-auto top-1/2 -translate-y-1/2 !important;
+
+    &-container {
+      @apply relative w-full h-36 overflow-hidden bg-white shadow-md;
     }
+  }
 
-    &__image {
-        @apply object-cover object-center w-full h-auto top-1/2 -translate-y-1/2 !important;
-
-        &-container {
-            @apply relative w-full h-36 overflow-hidden bg-white shadow-md;
-        }
+  &__details {
+    &-container {
+      @apply p-4 relative block text-mainDark;
     }
+  }
 
-    &__details {
-        &-container {
-            @apply p-4 relative block text-mainDark;
-        }
-    }
+  &__title {
+    @apply text-base font-semibold mb-2;
+  }
 
-    &__title {
-        @apply text-base font-semibold mb-2;
-    }
-
-    &__description {
-        @apply text-sm text-ellipsis line-clamp-3 text-justify;
-    }
+  &__description {
+    @apply text-sm text-ellipsis line-clamp-3 text-justify;
+  }
 }
 
 @media screen(md) {
-    .project-history {
-        &__wrapper {
-            @apply grid-cols-2;
-        }
+  .project-history {
+    &__wrapper {
+      @apply grid-cols-2;
     }
+  }
 }
 
 @media screen(lg) {
-    .project-history {
-
-        &__description {
-            @apply line-clamp-4;
-        }
+  .project-history {
+    &__description {
+      @apply line-clamp-4;
     }
+  }
 }
