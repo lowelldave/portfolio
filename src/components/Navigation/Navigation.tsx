@@ -1,6 +1,5 @@
 "use client";
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from "motion/react";
+import { useState, useEffect } from "react";
 
 import { useMediaQuery } from "@/hooks";
 
@@ -19,61 +18,54 @@ const menu: RouteList = [
 
 const Navigation = () => {
   const { isReached: isMobile, isScreenLoaded } = useMediaQuery(767);
-  const [activeSection, setActiveSection] = useState('#hero');
-  
+  const [activeSection, setActiveSection] = useState("#hero");
+
   useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      const viewable = entries.filter((item) => item.isIntersecting);
-  
-      if (viewable.length === 0) return;
-      
-      const activeId = viewable[0].target.id;
-      setActiveSection(`#${activeId}`);
-    }, {
-      threshold: 0.8
-    });
-  
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const viewable = entries.filter((item) => item.isIntersecting);
+
+        if (viewable.length === 0) return;
+
+        const activeId = viewable[0].target.id;
+        setActiveSection(`#${activeId}`);
+      },
+      {
+        threshold: 0.8,
+      },
+    );
+
     menu.forEach((item) => {
       const element = document.querySelector(item.url);
-  
+
       if (!element) return;
-  
+
       observer.observe(element);
     });
 
     return () => {
-      if (observer)
-        observer.disconnect();
-    }
+      if (observer) observer.disconnect();
+    };
   }, []);
 
   return (
-    <motion.nav className="navigation">
-      <AnimatePresence mode="sync">
-        {isScreenLoaded &&
-          (isMobile ? (
-            <BurgerMenu route={menu} active={activeSection} />
-          ) : (
-            <motion.ul
-              initial={{
-                opacity: 0,
-              }}
-              animate={{
-                opacity: 1,
-              }}
-              exit={{
-                opacity: 0,
-              }}
-              transition={{ delay: 0.5 }}
-              className="navigation__list"
-            >
-              {menu.map(({ label, url }) => (
-                <LinkItem label={label} url={url} key={`route-${label}`} active={activeSection} />
-              ))}
-            </motion.ul>
-          ))}
-      </AnimatePresence>
-    </motion.nav>
+    <nav className="navigation">
+      {isScreenLoaded &&
+        (isMobile ? (
+          <BurgerMenu route={menu} active={activeSection} />
+        ) : (
+          <ul className="navigation__list">
+            {menu.map(({ label, url }) => (
+              <LinkItem
+                label={label}
+                url={url}
+                key={`route-${label}`}
+                active={activeSection}
+              />
+            ))}
+          </ul>
+        ))}
+    </nav>
   );
 };
 
