@@ -1,73 +1,27 @@
 .education {
-    @apply text-mainDark py-8 text-center w-full;
+  @apply w-full;
 
-    &__item {
-        @apply flex flex-col text-main;
+  &__item {
+    @apply flex flex-col items-start gap-6 rounded-3xl border border-line bg-surface p-6 sm:flex-row sm:items-center md:p-8;
+  }
+
+  &__image {
+    @apply h-full w-full object-contain;
+
+    &-wrapper {
+      @apply flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl bg-white p-2 md:h-24 md:w-24;
     }
+  }
 
-    &__school {
-        @apply text-xl font-semibold;
-    }
+  &__school {
+    @apply text-2xl font-medium;
+  }
 
-    &__course {
-        @apply text-base;
-    }
+  &__course {
+    @apply mt-1 font-sans text-base text-muted;
+  }
 
-    &__year {
-        @apply text-xs;
-    }
-
-    &__detail-wrapper {
-        @apply content-center max-w-full ;
-    }
-
-    &__image {
-        @apply w-20 h-20;
-
-        &-wrapper {
-            @apply flex justify-center mb-4;
-        }
-    }
-}
-
-@media screen(md) {
-    .education {
-        @apply py-0 text-left;
-
-        &__item {
-            @apply flex-row-reverse justify-between;
-        }
-
-        &__school {
-            @apply text-2xl;
-        }
-
-        &__course {
-            @apply text-lg;
-        }
-    
-        &__year {
-            @apply text-sm;
-        }
-
-        &__detail-wrapper {
-            @apply content-center max-w-sm;
-        }
-
-        &__image {
-            @apply w-28 h-28;
-        }
-    }
-}
-
-@media screen(lg) {
-    .education {
-        &__detail-wrapper {
-            @apply content-center max-w-lg;
-        }
-
-        &__image {
-            @apply w-36 h-36;
-        }
-    }
+  &__year {
+    @apply mt-3 font-sans text-sm tabular-nums text-accent-strong;
+  }
 }

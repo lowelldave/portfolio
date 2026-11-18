@@ -1,23 +1,15 @@
 .about-me {
-    @apply flex flex-col;
+  @apply flex max-w-3xl flex-col gap-6;
 
-    &__header {
-        @apply text-4xl font-bold mb-2 text-mainDark;
+  &__header {
+    @apply mb-4 text-5xl font-normal md:text-7xl;
+  }
+
+  &__description {
+    @apply text-lg leading-relaxed text-muted;
+
+    &:first-of-type {
+      @apply text-xl text-fg md:text-2xl;
     }
-
-    &__description {
-        @apply max-w-full text-sm text-justify text-background bg-subDark p-4 mb-4;
-    }
-}
-
-@media screen(md) {
-    .about-me {
-        &__header {
-            @apply text-6xl mb-8;
-        }
-
-        &__description {
-            @apply max-w-full;
-        }
-    }
+  }
 }

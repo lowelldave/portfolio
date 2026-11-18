@@ -1,33 +1,25 @@
 "use client";
 
-import React from "react";
 import { useQuery } from "@tanstack/react-query";
 
-import type { IWorkItem } from "@/types/data.type";
-import { ItemLoader } from "@/components";
-import { getWork } from "@/api/data";
+import { Skeleton } from "@/components";
+import { dataQuery } from "@/api/data";
 
 import WorkItem from "./WorkItem";
 import "./style.css";
 
 const WorkHistory = () => {
-    const { data, isFetching } = useQuery<IWorkItem[]>({
-        queryKey: ["api/getWork"],
-        queryFn: getWork,
-        initialData: [],
-    });
+  const { data = [], isPending } = useQuery({ ...dataQuery, select: (d) => d.work });
 
-    return (
-        <div className="work">
-            {isFetching ? (
-                <ItemLoader />
-            ) : (
-                data.map((item) => (
-                    <WorkItem data={item} key={`workItem-${item.id}`} />
-                ))
-            )}
-        </div>
-    );
+  return (
+    <ol className="timeline">
+      {isPending ? (
+        <Skeleton variant="row" count={3} />
+      ) : (
+        data.map((item) => <WorkItem data={item} key={`work-${item.id}`} />)
+      )}
+    </ol>
+  );
 };
 
 export default WorkHistory;

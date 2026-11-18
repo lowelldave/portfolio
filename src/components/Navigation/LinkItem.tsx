@@ -1,30 +1,28 @@
-'use client';
+"use client";
 
-import './style.css';
+import { scrollToSection } from "./navigation.type";
 
 interface ILinkItem {
-    label: string;
-    url: string;
-    active: string;
+  label: string;
+  url: string;
+  active: string;
 }
 
 const LinkItem = ({ label, url, active }: ILinkItem) => {
-    const handleClick = (id: string) => () => {
-        const element = document.querySelector(id);
+  const isActive = active === url;
 
-        element?.scrollIntoView({ behavior: "smooth"});
-    }
-    
-    return (
-        <li className={`navigation__list-item ${active === url ? 'active' : ''}`}>
-            <button
-                onClick={handleClick(url)}
-                className={`navigation__link`}
-            >
-                { label }
-            </button>
-        </li>
-    );
+  return (
+    <li>
+      <button
+        type="button"
+        onClick={() => scrollToSection(url)}
+        className={`navigation__link ${isActive ? "is-active" : ""}`}
+        aria-current={isActive ? "true" : undefined}
+      >
+        {label}
+      </button>
+    </li>
+  );
 };
 
 export default LinkItem;

@@ -1,5 +1,3 @@
-import React from "react";
-
 import "./style.css";
 
 const Education = () => {
@@ -7,16 +5,17 @@ const Education = () => {
     <div className="education">
       <div className="education__item">
         <div className="education__image-wrapper">
-          <img src="/pup.png" className="education__image" />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/pup.png"
+            alt="Polytechnic University of the Philippines logo"
+            className="education__image"
+          />
         </div>
         <div className="education__detail-wrapper">
-          <h2 className="education__school">
-            Polytechnic University of the Philippines
-          </h2>
-          <h2 className="education__course">
-            Bachelor of Science in Information Technology
-          </h2>
-          <h2 className="education__year">2015-2019</h2>
+          <h3 className="education__school">Polytechnic University of the Philippines</h3>
+          <p className="education__course">Bachelor of Science in Information Technology</p>
+          <p className="education__year">2015-2019</p>
         </div>
       </div>
     </div>

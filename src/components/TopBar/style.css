@@ -1,11 +1,22 @@
 .topbar {
-    @apply bg-mainDark h-12 w-full px-10 py-2 flex items-center justify-start gap-4;
+  @apply sticky top-0 z-30 h-nav border-b border-line;
+  background-color: var(--nav-glass);
+  backdrop-filter: saturate(1.4) blur(14px);
+  -webkit-backdrop-filter: saturate(1.4) blur(14px);
 
-    &__button {
-        @apply bg-main px-4 py-2 rounded-lg text-sm font-bold;
-    }
+  &__inner {
+    @apply mx-auto grid h-full max-w-4xl grid-cols-[1fr_auto_1fr] items-center px-5 sm:px-8;
+  }
 
-    &__label {
-        @apply text-main text-xl font-bold;
-    }
+  &__back {
+    @apply inline-flex items-center gap-2 justify-self-start rounded-full border border-line px-4 py-1.5 text-sm transition-colors duration-200 hover:border-accent-strong hover:bg-surface;
+  }
+
+  &__label {
+    @apply text-xs font-medium uppercase tracking-[0.2em] text-muted;
+  }
+
+  &__brand {
+    @apply justify-self-end font-display text-xl font-semibold;
+  }
 }

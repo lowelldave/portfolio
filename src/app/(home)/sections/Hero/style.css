@@ -1,87 +1,35 @@
 .hero {
-    @apply flex w-full flex-col self-center;
+  @apply flex min-h-[calc(100svh-10rem)] flex-col justify-end gap-12 pt-nav text-on-ink md:min-h-[calc(100svh-14rem)] md:justify-center;
 
-    &__details-container {
-        @apply flex flex-col justify-center px-10;
-    
-        & * {
-            @apply text-main;
-        }
+  &__content {
+    @apply flex max-w-2xl flex-col;
+  }
+
+  &__greeting.eyebrow {
+    @apply mb-5 text-accent;
+  }
+
+  &__name {
+    @apply mb-6 text-5xl font-normal leading-[1.02] sm:text-6xl lg:text-7xl;
+
+    &-accent {
+      @apply italic text-accent;
     }
+  }
 
-    &__greetings {
-        @apply text-base font-roboto font-light;
+  &__subtitle {
+    @apply mb-10 max-w-md text-lg text-on-ink-muted md:text-xl;
+
+    & em {
+      @apply font-display italic text-on-ink;
     }
+  }
 
-    &__name {
-        @apply text-4xl mb-1 font-roboto text-left;
-    }
-    
-    &__subtitle {
-        @apply text-xl w-full font-roboto font-light mb-2;
-    }
+  &__actions {
+    @apply flex flex-wrap gap-3;
+  }
 
-    &__links {
-        &-container {
-            @apply flex justify-end flex-col px-10;
-        }
-        
-        &-wrapper {
-            @apply flex gap-6 bg-white bg-opacity-50 py-2 px-2;
-        }
-
-        &-item {
-            @apply relative w-10 h-10;
-        }
-        
-        &-image {
-            @apply w-10 h-auto;
-        }
-    }
-}
-
-@media screen(md) {
-    .hero {
-        &__greetings {
-            @apply text-xl;
-        }
-        &__name {
-            @apply text-6xl;
-        }
-        &__details-container {
-            @apply p-0;
-        }
-        &__links-container {
-            @apply p-0;
-        }
-    }
-}
-
-@media screen(lg) {
-    .hero {
-        @apply flex-row justify-between self-auto;
-    
-        &__name {
-            @apply text-6xl mb-4;
-        }
-    
-        &__greetings {
-            @apply text-2xl;
-        }
-    
-        &__subtitle {
-            @apply text-2xl w-2/3;
-        }
-
-        &__details-container {
-            @apply justify-center;
-        }
-
-        &__links {
-            &-wrapper {
-                @apply px-10;
-            }
-        }
-    }
-
+  &__socials {
+    @apply md:absolute md:bottom-0 md:right-0;
+  }
 }

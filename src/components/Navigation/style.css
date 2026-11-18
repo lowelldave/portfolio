@@ -1,118 +1,98 @@
-@keyframes smoothIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20%);
-        display: none;
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-        display: block;
-    }
-}
-
-@keyframes smoothOut {
-    from {
-        opacity: 1;
-        transform: translateY(0);
-        display: block;
-    }
-
-    to {
-        opacity: 0;
-        transform: translateY(-20%);
-        display: none;
-    }
-}
-
 .navigation {
-    @apply fixed w-full h-topNav p-4 flex justify-end bg-background bg-opacity-5 border-r-2 border-main z-20 shadow-lg;
+  @apply fixed inset-x-0 top-0 z-30 h-nav border-b border-line text-fg transition-[background-color,border-color,color] duration-300 ease-out;
+  background-color: var(--nav-glass);
+  backdrop-filter: saturate(1.4) blur(14px);
+  -webkit-backdrop-filter: saturate(1.4) blur(14px);
 
-    &__list {
-        @apply flex flex-row justify-center gap-2;
+  /* Sits on top of the hero photo: no glass, light text. */
+  &--transparent {
+    @apply border-transparent bg-transparent text-on-ink;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
 
-        &-item {
-            @apply px-4 text-main content-center box-content border-x-2 border-y-0 border-transparent;
-        
-            &.active {
-                @apply border-x-main;
-            }
-        }
+  &__inner {
+    @apply mx-auto flex h-full max-w-content items-center justify-between px-5 sm:px-8;
+  }
+
+  &__brand {
+    @apply font-display text-2xl font-semibold tracking-tight;
+
+    &-dot {
+      @apply text-accent;
+    }
+  }
+
+  &__desktop {
+    @apply hidden md:block;
+  }
+
+  &__list {
+    @apply flex items-center gap-1;
+  }
+
+  &__link {
+    @apply relative rounded-full px-4 py-2 text-sm opacity-70 transition-opacity duration-200 hover:opacity-100;
+
+    &::after {
+      content: "";
+      @apply absolute bottom-0.5 left-1/2 h-1 w-1 -translate-x-1/2 scale-0 rounded-full bg-accent-strong transition-transform duration-200 ease-out;
     }
 
-    &__link {
-        @apply transition-all duration-300 ease-in-out text-sm font-roboto;
+    &.is-active {
+      @apply opacity-100;
+
+      &::after {
+        @apply scale-100;
+      }
     }
+  }
+
+  &--transparent .navigation__link::after {
+    @apply bg-accent;
+  }
 }
 
 .burger-menu {
-    &__container {
-        @apply relative inline-block cursor-pointer;
+  @apply md:hidden;
+
+  &__toggle {
+    @apply relative flex h-10 w-10 flex-col items-center justify-center gap-1.5;
+  }
+
+  &__bar {
+    @apply block h-px w-6 bg-current transition-transform duration-300 ease-out;
+  }
+
+  &.is-open &__bar:first-child {
+    @apply translate-y-[3.5px] rotate-45;
+  }
+
+  &.is-open &__bar:last-child {
+    @apply -translate-y-[3.5px] -rotate-45;
+  }
+
+  &__panel {
+    @apply invisible fixed inset-x-0 top-nav h-[calc(100dvh-4rem)] -translate-y-2 bg-bg text-fg opacity-0 transition-[opacity,transform,visibility] duration-300 ease-out;
+  }
+
+  &.is-open &__panel {
+    @apply visible translate-y-0 opacity-100;
+  }
+
+  &__list {
+    @apply flex flex-col px-5 pt-6;
+  }
+
+  &__item {
+    @apply flex w-full items-baseline gap-4 border-b border-line py-5 text-left font-display text-3xl;
+
+    &.is-active {
+      @apply text-accent-strong;
     }
+  }
 
-    &__bar-1,
-    &__bar-2,
-    &__bar-3 {
-        @apply bg-mainDark my-1 w-6 h-1;
-    }
-
-    &__bar-1.open {
-        @apply -rotate-45 translate-y-2;
-    }
-    &__bar-2.open {
-        @apply opacity-0;
-    }
-    &__bar-3.open {
-        @apply rotate-45 -translate-y-2;
-    }
-
-    &__dropdown {
-        @apply absolute bg-background rounded-b top-full right-0 min-w-40 shadow-lg overflow-hidden;
-
-        &.open {
-            @apply block;
-            animation: smoothIn 0.25s cubic-bezier(0.19, 1, 0.22, 1);
-        }
-
-        &.close {
-            @apply hidden;
-            animation: smoothOut 0.25s cubic-bezier(0.19, 1, 0.22, 1);
-        }
-        
-    }
-
-    &__list {
-        @apply flex flex-col;
-
-        &-item {
-            @apply py-4 text-center border-y text-sm font-normal;
-
-            &.active {
-                @apply font-bold bg-main tracking-widest;
-            }
-        } 
-    }
-}
-
-@media screen(md) {
-    .navigation {
-        @apply justify-center bg-foreground w-sideNav h-full py-4;
-
-        &:hover {
-            @apply w-36;
-        }
-
-        &__list {
-            @apply flex-col gap-10;
-
-            &-item {
-                @apply text-main px-4 py-2 border-y-2 border-x-0 border-transparent text-center;
-        
-                &.active {
-                    @apply border-y-main;
-                }
-            }
-        }
-    }
+  &__index {
+    @apply font-sans text-xs tracking-widest text-muted;
+  }
 }

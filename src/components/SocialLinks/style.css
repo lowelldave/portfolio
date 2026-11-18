@@ -1,0 +1,70 @@
+.social-links {
+  @apply flex items-center gap-3;
+
+  &__item,
+  &__placeholder {
+    @apply flex h-11 w-11 items-center justify-center rounded-full border;
+  }
+
+  &__item {
+    @apply transition-[background-color,border-color,transform] duration-200 ease-out hover:-translate-y-0.5;
+  }
+
+  &__placeholder {
+    @apply animate-pulse;
+  }
+
+  &__icon {
+    @apply h-5 w-5 transition-[filter] duration-200;
+  }
+
+  /*
+   * Monochrome by default; brand colour returns on hover. Brand logos mix
+   * filled shapes and knock-outs (Facebook's white "f", GitHub's black mark),
+   * so a pure white/black filter erases some of them. Grayscale on a light
+   * chip keeps every logo legible.
+   */
+  &--light {
+    & .social-links__item,
+    & .social-links__placeholder {
+      border-color: transparent;
+      background-color: rgb(242 236 226 / 0.9);
+    }
+
+    & .social-links__item:hover {
+      @apply border-accent bg-white;
+    }
+
+    & .social-links__icon {
+      filter: grayscale(1);
+      opacity: 0.8;
+    }
+  }
+
+  &--dark {
+    & .social-links__item,
+    & .social-links__placeholder {
+      @apply border-line;
+    }
+
+    & .social-links__item:hover {
+      @apply border-accent-strong bg-surface;
+    }
+
+    & .social-links__icon {
+      filter: grayscale(1) contrast(1.2);
+      opacity: 0.75;
+    }
+  }
+
+  & .social-links__item:hover .social-links__icon {
+    filter: none;
+    opacity: 1;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .social-links--dark .social-links__item {
+    background-color: rgb(242 236 226 / 0.9);
+  }
+}

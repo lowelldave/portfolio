@@ -1,0 +1,66 @@
+.detail-skeleton {
+  @apply flex flex-col gap-4;
+}
+
+.detail {
+  &__header {
+    @apply mb-12 flex flex-col-reverse items-start gap-6 border-b border-line pb-10 sm:flex-row sm:items-end sm:justify-between;
+  }
+
+  &__heading {
+    @apply flex flex-col gap-3;
+  }
+
+  &__title {
+    @apply text-4xl font-normal leading-tight md:text-6xl;
+  }
+
+  &__subtitle {
+    @apply text-lg text-muted;
+  }
+
+  &__logo {
+    @apply relative h-20 w-40 shrink-0 overflow-hidden rounded-2xl border border-line bg-white;
+
+    & img {
+      @apply object-contain p-4;
+    }
+  }
+
+  &__media {
+    @apply relative mb-12 aspect-[16/9] overflow-hidden rounded-3xl border border-line bg-surface-2;
+    box-shadow: var(--shadow-card);
+  }
+
+  &__block {
+    @apply mb-12;
+
+    &-title {
+      @apply mb-4 font-sans text-xs font-medium uppercase tracking-[0.2em] text-muted;
+    }
+  }
+
+  &__lead {
+    @apply max-w-2xl text-lg leading-relaxed md:text-xl;
+  }
+
+  &__projects {
+    @apply flex flex-col border-t border-line;
+  }
+
+  &__project {
+    @apply grid grid-cols-[2.5rem_1fr_auto] items-start gap-4 border-b border-line py-6 transition-colors duration-200 hover:bg-surface md:px-4;
+
+    &-index {
+      @apply pt-1 text-sm tabular-nums text-muted;
+    }
+
+    &-title {
+      @apply mb-1 text-xl font-medium;
+    }
+
+    &-description {
+      @apply text-sm text-muted;
+    }
+  }
+}

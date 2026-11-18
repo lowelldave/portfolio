@@ -1,37 +1,42 @@
 import type { Config } from "tailwindcss";
 
 export default {
-  content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
+  content: ["./src/components/**/*.{js,ts,jsx,tsx,mdx}", "./src/app/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
     extend: {
       fontFamily: {
-        'roboto': ['Roboto', 'sans-serif'],
+        sans: ["var(--font-sans)", "ui-sans-serif", "system-ui", "sans-serif"],
+        display: ["var(--font-display)", "ui-serif", "Georgia", "serif"],
       },
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
-        main: "var(--main)",
-        sub: "var(--sub)",
-        mainDark: "var(--main-dark)",
-        subDark: "var(--sub-dark)",
+        // Surfaces
+        bg: "var(--bg)",
+        surface: "var(--surface)",
+        "surface-2": "var(--surface-2)",
+        ink: "var(--ink)",
+        // Text
+        fg: "var(--fg)",
+        muted: "var(--muted)",
+        "on-ink": "var(--on-ink)",
+        "on-ink-muted": "var(--on-ink-muted)",
+        // Lines & accent
+        line: "var(--line)",
+        accent: "var(--accent)",
+        "accent-strong": "var(--accent-strong)",
+        "accent-fg": "var(--accent-fg)",
       },
-      padding: {
-        sideNav: "0 0 0 7rem",
-        topNav: "4rem 0 0 0",
-      },
-      width: {
-        sideNav: "7rem",
+      maxWidth: {
+        content: "72rem",
       },
       height: {
-        topNav: "4rem",
+        nav: "4rem",
       },
-      boxShadow: {
-        innerShadow: 'inset 0px 0px 10px 5px rgba(0, 0, 0, 0.1)',
-      }
+      spacing: {
+        nav: "4rem",
+      },
+      transitionTimingFunction: {
+        out: "cubic-bezier(0.22, 1, 0.36, 1)",
+      },
     },
   },
   plugins: [],

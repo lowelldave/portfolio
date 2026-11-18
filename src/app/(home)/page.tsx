@@ -1,43 +1,43 @@
 import { Section } from "@/components";
-import { Hero, ContactMe, ProjectHistory, TechStack, Training, WorkHistory } from './sections';
+
+import { Hero, ContactMe, ProjectHistory, TechStack, Training, WorkHistory } from "./sections";
 
 export default function Home() {
   return (
     <>
       <Section
-        className="h-screen flex"
-        settings={{
-          bg: {
-            src: "/hero-bg.jpg",
-            isFill: true,
-            objectPosition: "90% 0",
-          },
-          overlay: {
-            style: "dotted",
-          },
-        }}
         id="hero"
+        variant="ink"
+        settings={{
+          bg: { src: "/hero-bg.jpg", objectPosition: "85% 0" },
+          overlay: { style: "gradient" },
+        }}
       >
         <Hero />
       </Section>
 
-      <Section title="Tech Stack" className="shadow-innerShadow" id="techstack">
+      <Section id="techstack" eyebrow="01 — Stack" title="Tools I build with">
         <TechStack />
       </Section>
 
-      <Section title="Work History" variant="dark" id="work">
+      <Section id="work" variant="muted" eyebrow="02 — Experience" title="Where I've worked">
         <WorkHistory />
       </Section>
 
-      <Section title="Project History" className="shadow-innerShadow" id="project">
+      <Section id="project" eyebrow="03 — Projects" title="Selected projects">
         <ProjectHistory />
       </Section>
 
-      <Section title="Trainings and Certifications" variant="dark" id="training">
+      <Section
+        id="training"
+        variant="muted"
+        eyebrow="04 — Learning"
+        title="Trainings & certifications"
+      >
         <Training />
       </Section>
 
-      <Section className="shadow-innerShadow">
+      <Section id="contact" variant="ink">
         <ContactMe />
       </Section>
     </>
