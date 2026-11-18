@@ -1,36 +1,29 @@
-"use client";
-
-import React from "react";
-import Link from "next/link";
-
-import ImageWithFallback from "@/components/ImageWithFallback/ImageWIthFallback";
-
 import type { IStackItem } from "@/types/data.type";
 
+import ImageWithFallback from "../ImageWithFallback/ImageWithFallback";
 import "./style.css";
 
-const TechStackItem = ({ data }: { data: IStackItem }) => {
+const StackItem = ({ data }: { data: IStackItem }) => {
   return (
-    <div>
-      <Link
-        href={data.url}
-        rel="noopener noreferrer"
-        target="_blank"
-        className="stack__item"
-      >
-        <ImageWithFallback
-          src={data.imgUrl ?? "#"}
-          width={100}
-          height={100}
-          alt={data.name ?? ""}
-          loading="lazy"
-          className="stack__image"
-          fallbackSrc="/default.webp"
-        />
-        <label className="stack__name">{data.label ?? ""}</label>
-      </Link>
-    </div>
+    <a
+      href={data.url}
+      rel="noopener noreferrer"
+      target="_blank"
+      className="stack-item"
+      title={`${data.label} — opens in a new tab`}
+    >
+      <ImageWithFallback
+        src={data.imgUrl}
+        width={40}
+        height={40}
+        alt=""
+        loading="lazy"
+        className="stack-item__logo"
+        fallbackSrc="/default.webp"
+      />
+      <span className="stack-item__name">{data.label}</span>
+    </a>
   );
 };
 
-export default TechStackItem;
+export default StackItem;

@@ -1,16 +1,14 @@
-import React from "react";
-
 import WorkDetails from "./WorkDetails";
-import "./style.css";
+import "@/app/styles/detail.css";
 
-const ProjectPage = async ({ params }: { params: Promise<{ id: string }> }) => {
-    const { id } = await params;
+const WorkPage = async ({ params }: { params: Promise<{ id: string }> }) => {
+  const { id } = await params;
 
-    return (
-        <div className="work">
-            <WorkDetails workId={id} />
-        </div>
-    );
+  return (
+    <div>
+      <WorkDetails workId={Number(id)} />
+    </div>
+  );
 };
 
-export default ProjectPage;
+export default WorkPage;

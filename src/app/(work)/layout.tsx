@@ -1,43 +1,28 @@
-import type { PropsWithChildren } from "react";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 
 import { Footer, TopBar } from "@/components";
 
-import Providers from "../(home)/providers";
+import { fontVariables } from "../fonts";
+import Providers from "../providers";
 import "../globals.css";
 
-const geistSans = Geist({
-    variable: "--font-geist-sans",
-    subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-    variable: "--font-geist-mono",
-    subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
-    title: "Project Details",
-    description: "Details of the project",
+  title: "Work Details",
+  description: "Details of the work",
 };
 
-const ProjectLayout = ({ children }: PropsWithChildren) => {
-    return (
-        <html lang="en">
-            <body
-                className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-            >
-                <Providers>
-                    <TopBar type="work" />
-                    <div className="layout details">
-                        <main className="main-project">{children}</main>
-                    </div>
-                    <Footer />
-                </Providers>
-            </body>
-        </html>
-    );
-};
-
-export default ProjectLayout;
+export default function WorkLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  return (
+    <html lang="en" className={fontVariables} suppressHydrationWarning>
+      <body>
+        <Providers>
+          <TopBar type="work" />
+          <div className="layout details">
+            <main className="main-project">{children}</main>
+          </div>
+          <Footer />
+        </Providers>
+      </body>
+    </html>
+  );
+}

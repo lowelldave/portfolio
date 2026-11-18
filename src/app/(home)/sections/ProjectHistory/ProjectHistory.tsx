@@ -1,41 +1,36 @@
-'use client';
-
-import React from "react";
+"use client";
 
 import { useQuery } from "@tanstack/react-query";
 
-import type { IProjectItem } from "@/types/data.type";
-import { ItemLoader } from "@/components";
-import { getProject } from "@/api/data";
+import { Skeleton } from "@/components";
+import { dataQuery } from "@/api/data";
 
 import ProjectHistoryItem from "./ProjectHistoryItem";
 import "./style.css";
 
 const ProjectHistory = () => {
-    const { data, isFetching } = useQuery<IProjectItem[]>({
-        queryKey: ["api/getProject"],
-        queryFn: getProject,
-        initialData: [],
-    });
+  const { data = [], isPending } = useQuery({
+    ...dataQuery,
+    select: ({ project, stack }) =>
+      project.map((item) => ({
+        ...item,
+        tags: item.stack_id
+          .map((id) => stack.find((s) => s.id === id)?.label)
+          .filter((label): label is string => !!label),
+      })),
+  });
 
-    return (
-        <div className="project-history">
-            {isFetching ? (
-                <ItemLoader />
-            ) : (
-              <div className="project-history__wrapper">
-                {
-                  data.map((item) => (
-                      <ProjectHistoryItem
-                          data={item}
-                          key={`project-${item.id}`}
-                      />
-                  ))
-                }
-              </div>
-            )}
-        </div>
-    );
+  return (
+    <div className="project-grid">
+      {isPending ? (
+        <Skeleton variant="card" count={4} />
+      ) : (
+        data.map((item, idx) => (
+          <ProjectHistoryItem data={item} index={idx} key={`project-${item.id}`} />
+        ))
+      )}
+    </div>
+  );
 };
 
 export default ProjectHistory;

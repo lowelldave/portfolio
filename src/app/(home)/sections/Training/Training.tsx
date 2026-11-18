@@ -1,37 +1,25 @@
 "use client";
 
-import React from "react";
 import { useQuery } from "@tanstack/react-query";
 
-import type { ITrainingItem } from "@/types/data.type";
-import { ItemLoader } from "@/components";
-import { getTraining } from "@/api/data";
+import { Skeleton } from "@/components";
+import { dataQuery } from "@/api/data";
 
 import TrainingItem from "./TrainingItem";
 import "./style.css";
 
 const Training = () => {
-    const { data, isFetching } = useQuery<ITrainingItem[]>({
-        queryKey: ["api/getTraining"],
-        queryFn: getTraining,
-        initialData: [],
-    });
+  const { data = [], isPending } = useQuery({ ...dataQuery, select: (d) => d.training });
 
-    return (
-        <div className="training">
-            {isFetching ? (
-                <ItemLoader />
-            ) : (
-                <div className="training__wrapper">
-                {
-                    data.map((item) => (
-                        <TrainingItem data={item} key={`training-${item.id}`} />
-                    )) 
-                }    
-                </div>
-            )}
-        </div>
-    );
+  return (
+    <ul className="training-list">
+      {isPending ? (
+        <Skeleton variant="block" count={4} />
+      ) : (
+        data.map((item) => <TrainingItem data={item} key={`training-${item.id}`} />)
+      )}
+    </ul>
+  );
 };
 
 export default Training;

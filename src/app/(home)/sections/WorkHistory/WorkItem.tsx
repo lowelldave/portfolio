@@ -1,46 +1,34 @@
-"use client";
-
-import React from "react";
 import Link from "next/link";
 
 import { ImageWithFallback } from "@/components";
 import type { IWorkItem } from "@/types/data.type";
 
-import "./style.css";
-
 const WorkItem = ({ data }: { data: IWorkItem }) => {
   return (
-    <>
-      <div className="work__item">
-        <div className="work__info">
-          <div className="work__info-container">
-            <h2 className="work__name">{data.name}</h2>
-            <h3 className="work__position">{data.position}</h3>
-            <label className="work__date">{data.date}</label>
-          </div>
-
-          <div className="work__image-container">
-            <ImageWithFallback
-              className="work__image"
-              src={data.logoSrc}
-              alt={`${data.name}-logo`}
-              loading="lazy"
-              width={100}
-              height={0}
-              fallbackSrc="/default.webp"
-            />
-          </div>
-        </div>
-
-        <p className="work__details">{data.description}</p>
-
-        <div className="work__action-container">
-          <Link href={`/work/${data.id}`} className="work__link-button">
-            More Details
-          </Link>
+    <li className="timeline__item reveal">
+      <div className="timeline__meta">
+        <time className="timeline__date">{data.date}</time>
+        <div className="timeline__logo">
+          <ImageWithFallback
+            src={data.logoSrc}
+            alt={`${data.name} logo`}
+            width={160}
+            height={64}
+            loading="lazy"
+            fallbackSrc="/default.webp"
+          />
         </div>
       </div>
-    </>
+
+      <div className="timeline__body">
+        <h3 className="timeline__company">{data.name}</h3>
+        <p className="timeline__role">{data.position}</p>
+        <p className="timeline__description">{data.description}</p>
+        <Link href={`/work/${data.id}`} className="link-arrow">
+          View details <span className="arrow">→</span>
+        </Link>
+      </div>
+    </li>
   );
 };
 

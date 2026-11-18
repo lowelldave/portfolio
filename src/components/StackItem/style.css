@@ -1,29 +1,25 @@
-.stack {
-    &__item {
-        @apply w-20 min-h-20 p-2 rounded-lg flex items-center flex-col justify-between box-border relative top-0 border-2 border-transparent;
-    
-        &:hover {
-            @apply border-slate-200 shadow-[5px_5px_10px_0px_rgba(0,_0,_0,_0.1)] top-2 bg-white;
-        }
-    }
-    
-    &__name {
-        @apply text-sm text-center;
-    }
-    
-    &__image {
-        @apply w-8 h-8 mb-2;
-    }
+/* Grid container shared by the home Tech Stack section and the detail pages. */
+.stack-grid {
+  @apply grid grid-cols-3 gap-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8;
 }
 
-@media screen(md) {
-    .stack {
-        &__item {
-            @apply w-28 p-4;
-        }
+.stack-item {
+  @apply flex min-h-[7rem] flex-col items-center justify-center gap-3 rounded-2xl border border-line bg-surface p-3 text-center transition-[border-color,box-shadow,transform] duration-200 ease-out;
 
-        &__image {
-            @apply w-12 h-auto min-h-12 max-h-16;
-        }
-    }
+  &:hover {
+    @apply -translate-y-0.5 border-accent-strong;
+    box-shadow: var(--shadow-card);
+  }
+
+  &__logo {
+    @apply h-8 w-8 object-contain opacity-70 grayscale transition-[filter,opacity] duration-200 md:h-10 md:w-10;
+  }
+
+  &:hover &__logo {
+    @apply opacity-100 grayscale-0;
+  }
+
+  &__name {
+    @apply text-xs leading-tight text-muted;
+  }
 }

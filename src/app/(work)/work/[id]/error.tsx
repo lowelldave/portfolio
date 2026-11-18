@@ -1,8 +1,8 @@
-'use client';
- 
-import { useEffect } from 'react';
- 
-export default function Error({
+"use client";
+
+import { useEffect } from "react";
+
+export default function ErrorPage({
   error,
   reset,
 }: {
@@ -12,18 +12,15 @@ export default function Error({
   useEffect(() => {
     console.error(error);
   }, [error]);
- 
+
   return (
-    <main className="flex h-full flex-col items-center justify-center">
-      <h2 className="text-center">Something went wrong!</h2>
-      <button
-        className="mt-4 rounded-md bg-blue-500 px-4 py-2 text-sm text-white transition-colors hover:bg-blue-400"
-        onClick={
-          () => reset()
-        }
-      >
+    <div className="flex flex-col items-start gap-4 py-16">
+      <p className="eyebrow">Error</p>
+      <h1 className="text-4xl">Something went wrong.</h1>
+      <p className="text-muted">The details couldn&apos;t be loaded. Please try again.</p>
+      <button type="button" className="btn btn-primary mt-2" onClick={() => reset()}>
         Try again
       </button>
-    </main>
+    </div>
   );
-};
+}

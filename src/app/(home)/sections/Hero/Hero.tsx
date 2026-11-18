@@ -1,22 +1,30 @@
-import React from 'react';
+import { SocialLinks } from "@/components";
 
-import LinkList from './LinkList';
-import './style.css';
+import "./style.css";
 
 const Hero = () => {
-
   return (
     <div className="hero">
-        <div className="hero__details-container">
-            <label className="hero__greetings">Hi there, I&apos;m</label>
-            <h1 className="hero__name">Lowell Dave E. Agnir</h1>
-            <label className="hero__subtitle">
-                Frontend developer that specializes in UI/UX designs.
-            </label>
+      <div className="hero__content">
+        <p className="eyebrow hero__greeting">Hi there, I&apos;m</p>
+        <h1 className="hero__name">Lowell Dave E. Agnir</h1>
+        <p className="hero__subtitle">
+          Frontend developer that specializes in <em>UI/UX designs</em>.
+        </p>
+
+        <div className="hero__actions">
+          <a href="#work" className="btn btn-primary">
+            View my work
+          </a>
+          <a href="#contact" className="btn btn-ghost">
+            Get in touch
+          </a>
         </div>
-        <LinkList />
+      </div>
+
+      <SocialLinks tone="light" className="hero__socials" />
     </div>
-  )
-}
+  );
+};
 
 export default Hero;

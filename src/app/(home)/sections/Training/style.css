@@ -1,81 +1,28 @@
-.training {
-    @apply flex justify-center;
-
-    &__wrapper {
-        @apply grid grid-cols-1 gap-4 my-10; 
-    }
-
-    &__item {
-        @apply relative border shadow-lg text-main rounded;
-    }
-
-    &__link {
-        @apply flex flex-col justify-between h-full w-full;
-    }
-
-    &__title {
-        @apply text-base font-bold p-4 text-center;
-    }
-
-    &__details {
-        @apply flex flex-col justify-center bg-background text-mainDark p-2;
-    }
-
-    &__provider {
-        @apply font-semibold text-sm text-center;
-    }
-
-    &__date {
-        @apply text-xs text-center;
-    }
+.training-list {
+  @apply grid grid-cols-1 gap-4 md:grid-cols-2;
 }
 
-@media screen(sm) {
-    .training {
-        @apply grid-cols-2;
-    }
-}
+.training-item {
+  @apply flex h-full items-start justify-between gap-6 rounded-2xl border border-line bg-surface p-6 transition-[border-color,box-shadow] duration-200 ease-out;
 
-@media screen(md) {
-    .training {
-        &__wrapper {
-            @apply grid-cols-2 my-20;
-        }
+  &:hover {
+    @apply border-accent-strong;
+    box-shadow: var(--shadow-card);
+  }
 
-        &__title {
-            @apply text-lg font-bold;
-        }
-    
-        &__provider {
-            @apply text-sm;
-        }
-    
-        &__date {
-            @apply text-xs;
-        }
-    }
-}
+  &__title {
+    @apply mb-2 text-lg font-medium leading-snug;
+  }
 
-@media screen(lg) {
-    .training {
-        &__wrapper {
-            @apply grid-cols-3;
-        }
-    }
-}
+  &__meta {
+    @apply flex flex-wrap gap-x-2 text-sm text-muted;
+  }
 
-@media screen(xl) {
-    .training {
-        &__wrapper {
-            @apply grid-cols-4;
-        }
-    }
-}
+  &__icon {
+    @apply flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-line text-muted transition-[background-color,color,border-color,transform] duration-200 ease-out;
+  }
 
-@media screen(2xl) {
-    .training {
-        &__wrapper {
-            @apply grid-cols-5;
-        }
-    }
+  &:hover &__icon {
+    @apply rotate-0 border-accent-strong bg-accent text-accent-fg;
+  }
 }

@@ -1,49 +1,65 @@
-'use client';
+"use client";
 
-import React from "react";
 import Image from "next/image";
-
+import Link from "next/link";
+import { notFound } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
 
-import type { IResponseGetProjectData } from "@/types/data.type";
-import { getProjectById } from "@/api/data";
-import { ItemLoader } from "@/components";
+import { dataQuery, selectProjectById } from "@/api/data";
+import { Skeleton, StackList } from "@/components";
 
-import StackList from "./StackList";
-import "./style.css";
+const ProjectDetails = ({ projectId }: { projectId: number }) => {
+  const { data, isPending } = useQuery({
+    ...dataQuery,
+    select: (d) => selectProjectById(d, projectId),
+    throwOnError: true,
+  });
 
-interface IProjectDetails {
-    projectId: string;
-}
-
-const ProjectDetails = ({ projectId }: IProjectDetails) => {
-
-    const { data, isFetching } = useQuery<
-        IResponseGetProjectData | undefined
-    >({
-        queryKey: ["api/getProjectById"],
-        queryFn: () => getProjectById(parseInt(projectId)),
-    });
-
-    if (!data || isFetching) return <ItemLoader />;
-
+  if (isPending) {
     return (
-        <>
-            <div className="project__wrapper">
-                <h1 className="project__title">{data.project?.title}</h1>
-                <h2 className="project__subtitle">{`${data.work?.name ?? 'Unknown'} Project`}</h2>
-
-                <p className="project__description">{data.project?.description}</p>
-
-                {data.project?.imgUrl && (
-                    <div className="project__image-wrapper">
-                        <Image src={data.project.imgUrl} alt="project-image" fill />
-                    </div>
-                )}
-            </div>
-            <StackList data={{ stack: data?.stack ?? [] }} />
-        </>
+      <div className="detail-skeleton">
+        <Skeleton variant="block" count={1} />
+        <Skeleton variant="card" count={1} />
+      </div>
     );
+  }
+  if (!data) notFound();
+
+  return (
+    <article>
+      <header className="detail__header">
+        <div className="detail__heading">
+          {data.work ? (
+            <Link href={`/work/${data.work.id}`} className="eyebrow hover:underline">
+              {data.work.name} project
+            </Link>
+          ) : (
+            <p className="eyebrow">Project</p>
+          )}
+          <h1 className="detail__title">{data.project.title}</h1>
+        </div>
+      </header>
+
+      {data.project.imgUrl && (
+        <div className="detail__media">
+          <Image
+            src={data.project.imgUrl}
+            alt={`${data.project.title} screenshot`}
+            fill
+            sizes="(min-width: 896px) 896px, 100vw"
+            className="object-cover object-top"
+          />
+        </div>
+      )}
+
+      <section className="detail__block">
+        <h2 className="detail__block-title">Overview</h2>
+        <p className="detail__lead">{data.project.description}</p>
+      </section>
+
+      <StackList stack={data.stack} title="Built with" />
+    </article>
+  );
 };
 
 export default ProjectDetails;

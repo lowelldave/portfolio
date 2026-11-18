@@ -1,7 +1,11 @@
 .footer {
-    @apply fixed h-20 w-full text-center py-2 z-20 transition-all duration-300 ease-in-out -bottom-10;
+  @apply border-t border-line bg-bg px-5 py-8 text-sm text-muted sm:px-8;
 
-    &:hover {
-        @apply bg-main text-mainDark bottom-0;
-    }
+  &__inner {
+    @apply mx-auto flex max-w-content flex-col items-center justify-between gap-3 sm:flex-row;
+  }
+
+  &__top {
+    @apply transition-colors duration-200 hover:text-fg;
+  }
 }

@@ -1,98 +1,61 @@
-@keyframes move {
-    from { background-position-x: left; }
-    to { background-position-x: right; }
-}
-
 .section {
-    @apply w-full p-4 relative overflow-hidden;
+  @apply relative isolate w-full overflow-hidden px-5 py-20 sm:px-8 md:py-28;
+  scroll-margin-top: theme("spacing.nav");
 
-    &__name {
-        @apply text-2xl font-bold mb-4;
+  &--muted {
+    @apply bg-surface-2;
+  }
+
+  &--ink {
+    @apply bg-ink text-on-ink;
+
+    & .eyebrow {
+      @apply text-accent;
     }
+  }
 
-    &__bg {
-        @apply absolute -z-20;
+  &__inner {
+    @apply relative mx-auto w-full max-w-content;
+  }
 
-        &.right,
-        &.left,
-        &.center {
-            @apply w-auto h-5/6 top-1/2 -translate-y-1/2 -translate-x-1/2;
-        }
+  &__header {
+    @apply mb-12 flex flex-col gap-3 md:mb-16;
+  }
 
-        &.right {
-            @apply right-0 -translate-x-5;
-        }
+  &__title {
+    @apply text-3xl font-medium md:text-5xl;
+  }
 
-        &.left {
-            @apply left-0 translate-x-5;
-        }
+  &__bg {
+    @apply -z-20 object-cover;
+  }
 
-        &.center {
-            @apply left-1/2;
-        }
+  &__overlay {
+    @apply absolute inset-0 -z-10;
 
-        &.fill {
-            @apply object-cover top-0 left-0 right-0 bottom-0 w-full h-full;
-        }
+    /* Phones: text sits low over the photo, so darken from the bottom up. */
+    &--gradient {
+      background: linear-gradient(
+        180deg,
+        rgb(14 16 19 / 0.35) 0%,
+        rgb(14 16 19 / 0.55) 35%,
+        rgb(14 16 19 / 0.92) 62%,
+        rgb(14 16 19 / 0.97) 100%
+      );
     }
-
-    &__overlay {
-        @apply absolute top-0 left-0 right-0 bottom-0 -z-10;
-
-        &.dotted {
-            background-image: radial-gradient(#ebebeb 0.6px, #000000 0.8px);
-            background-size: 20px 20px;
-            animation: move 90s linear 2s infinite;
-        }
-    }
-    
-    &.dark {
-        @apply bg-foreground;
-
-        & .section {
-            &__name {
-                @apply text-main;
-            }
-        }
-    }
-
-    &.light {
-        & .section {
-            &__name {
-                @apply text-main;
-            }
-        }
-    }
+  }
 }
 
+/* Wider screens: text sits left, photo right, so darken from the left. */
 @media screen(md) {
-    .section {
-        @apply px-12 py-12;
-
-        &__name {
-            @apply text-2xl mb-8;
-        }
-    }
-}
-
-@media screen(lg) {
-    .section {
-        @apply px-20;
-
-        &__name {
-            @apply text-2xl;
-        }
-    }
-}
-
-@media screen(xl) {
-    .section {
-        @apply px-40;
-    }
-}
-
-@media screen(2xl) {
-    .section {
-        @apply px-60;
-    }
+  .section__overlay--gradient {
+    background:
+      linear-gradient(180deg, rgb(14 16 19 / 0) 55%, rgb(14 16 19 / 0.65) 100%),
+      linear-gradient(
+        90deg,
+        rgb(14 16 19 / 0.94) 0%,
+        rgb(14 16 19 / 0.78) 42%,
+        rgb(14 16 19 / 0.15) 100%
+      );
+  }
 }
